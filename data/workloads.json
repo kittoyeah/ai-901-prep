@@ -1,0 +1,984 @@
+{
+  "section": "workloads",
+  "title": "AI Workloads & Capabilities Identification",
+  "blueprintRef": "Identify AI concepts and capabilities (40-45%) > Identify AI workloads",
+  "source": "Concepts 1, 3, 4, 5, 6 (NLP, Speech, Computer Vision, Information Extraction)",
+  "questions": [
+    {
+      "id": "wl-001",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "A marketing team wants to monitor social media posts and automatically classify each post as positive, negative, or neutral about their brand. Which AI workload best fits?",
+      "options": [
+        { "key": "A", "text": "Sentiment analysis (text analysis / NLP)" },
+        { "key": "B", "text": "Computer vision" },
+        { "key": "C", "text": "Speech recognition" },
+        { "key": "D", "text": "Information extraction" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Classifying text as positive/negative/neutral is sentiment analysis, a text-analysis (NLP) technique.",
+        "distractors": {
+          "B": "Computer vision analyses images, not text posts.",
+          "C": "Speech recognition converts audio to text, not relevant to written posts.",
+          "D": "Information extraction pulls structured fields from documents, not sentiment."
+        }
+      },
+      "tags": ["text-analysis", "sentiment", "scenario"]
+    },
+    {
+      "id": "wl-002",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "A call centre wants to convert recorded customer phone calls into written transcripts. Which workload is required?",
+      "options": [
+        { "key": "A", "text": "Speech recognition (speech-to-text)" },
+        { "key": "B", "text": "Speech synthesis (text-to-speech)" },
+        { "key": "C", "text": "Sentiment analysis" },
+        { "key": "D", "text": "Optical character recognition" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Converting spoken audio into text is speech recognition (speech-to-text, STT).",
+        "distractors": {
+          "B": "Text-to-speech goes the other direction (text to audio).",
+          "C": "Sentiment analysis could run on the transcript afterwards, but transcription itself is STT.",
+          "D": "OCR reads text from images, not audio."
+        }
+      },
+      "tags": ["speech", "stt", "scenario"]
+    },
+    {
+      "id": "wl-003",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "An accessibility feature reads on-screen articles aloud for visually impaired users in a natural-sounding voice. Which workload is this?",
+      "options": [
+        { "key": "A", "text": "Speech synthesis (text-to-speech)" },
+        { "key": "B", "text": "Speech recognition (speech-to-text)" },
+        { "key": "C", "text": "Summarisation" },
+        { "key": "D", "text": "Computer vision" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Generating audible speech from text is speech synthesis (text-to-speech, TTS).",
+        "distractors": {
+          "B": "STT converts audio to text, the opposite.",
+          "C": "Summarisation shortens text, it doesn't vocalise it.",
+          "D": "Computer vision analyses images."
+        }
+      },
+      "tags": ["speech", "tts", "scenario"]
+    },
+    {
+      "id": "wl-004",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A retailer wants to detect which products are on a shelf and where each one is located in the image (with bounding boxes). Which computer vision task fits?",
+      "options": [
+        { "key": "A", "text": "Object detection" },
+        { "key": "B", "text": "Image classification" },
+        { "key": "C", "text": "Semantic segmentation" },
+        { "key": "D", "text": "Image generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Identifying individual objects AND their locations via bounding boxes is object detection.",
+        "distractors": {
+          "B": "Image classification predicts one label for the whole image, no locations.",
+          "C": "Semantic segmentation labels every pixel (precise masks), more than 'where each product is' by box.",
+          "D": "Image generation creates new images, not detection."
+        }
+      },
+      "tags": ["computer-vision", "object-detection", "scenario"]
+    },
+    {
+      "id": "wl-005",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "An app needs to predict whether a single uploaded photo shows a cat, a dog, or a bird (one main label). Which task is this?",
+      "options": [
+        { "key": "A", "text": "Image classification" },
+        { "key": "B", "text": "Object detection" },
+        { "key": "C", "text": "Semantic segmentation" },
+        { "key": "D", "text": "OCR" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Predicting the single main subject label of an image is image classification.",
+        "distractors": {
+          "B": "Object detection also gives locations of multiple objects.",
+          "C": "Segmentation labels pixels.",
+          "D": "OCR reads text from images."
+        }
+      },
+      "tags": ["computer-vision", "classification", "scenario"]
+    },
+    {
+      "id": "wl-006",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "An accounts team wants to automatically pull the invoice number, date, vendor, and total from scanned supplier invoices into a database. Which workload fits best?",
+      "options": [
+        { "key": "A", "text": "Information extraction" },
+        { "key": "B", "text": "Sentiment analysis" },
+        { "key": "C", "text": "Image classification" },
+        { "key": "D", "text": "Speech recognition" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Extracting structured fields (invoice number, date, total) from documents is information extraction (OCR + field mapping).",
+        "distractors": {
+          "B": "Sentiment analysis judges tone, not fields.",
+          "C": "Classification labels the whole image, not individual fields.",
+          "D": "Speech recognition handles audio."
+        }
+      },
+      "tags": ["information-extraction", "scenario"]
+    },
+    {
+      "id": "wl-007",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A designer types 'a watercolour fox in a snowy forest' and the system produces a brand-new image. Which workload is this?",
+      "options": [
+        { "key": "A", "text": "Image generation (generative AI)" },
+        { "key": "B", "text": "Image classification" },
+        { "key": "C", "text": "Object detection" },
+        { "key": "D", "text": "Semantic segmentation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Producing new images from a text prompt is image generation, a generative AI workload (diffusion).",
+        "distractors": {
+          "B": "Classification labels existing images.",
+          "C": "Object detection locates objects in existing images.",
+          "D": "Segmentation masks pixels in existing images."
+        }
+      },
+      "tags": ["generative-ai", "image-generation", "scenario"]
+    },
+    {
+      "id": "wl-008",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "A company wants a conversational assistant that answers customer questions in natural language and can hold a back-and-forth dialogue. Which workload is this?",
+      "options": [
+        { "key": "A", "text": "Generative AI (chat)" },
+        { "key": "B", "text": "Information extraction" },
+        { "key": "C", "text": "Semantic segmentation" },
+        { "key": "D", "text": "Optical character recognition" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A natural-language conversational assistant is a generative AI (chat) workload.",
+        "distractors": {
+          "B": "Information extraction pulls fields from documents.",
+          "C": "Segmentation is a vision task.",
+          "D": "OCR reads text from images."
+        }
+      },
+      "tags": ["generative-ai", "scenario"]
+    },
+    {
+      "id": "wl-009",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A support desk receives tickets in many languages and wants to automatically identify which language each ticket is written in before routing. Which text-analysis technique is this?",
+      "options": [
+        { "key": "A", "text": "Language detection" },
+        { "key": "B", "text": "Sentiment analysis" },
+        { "key": "C", "text": "Key phrase extraction" },
+        { "key": "D", "text": "Summarisation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Identifying the language of a document (often the first step in a pipeline) is language detection.",
+        "distractors": {
+          "B": "Sentiment analysis judges tone.",
+          "C": "Key phrase extraction pulls main concepts.",
+          "D": "Summarisation shortens text."
+        }
+      },
+      "tags": ["text-analysis", "language-detection", "scenario"]
+    },
+    {
+      "id": "wl-010",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A legal firm needs to automatically find and redact names, addresses, and phone numbers in documents before sharing them. Which technique addresses this?",
+      "options": [
+        { "key": "A", "text": "PII detection" },
+        { "key": "B", "text": "Sentiment analysis" },
+        { "key": "C", "text": "Image classification" },
+        { "key": "D", "text": "Language detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Finding and optionally redacting personal data (names, addresses, phones) is PII (personally identifiable information) detection.",
+        "distractors": {
+          "B": "Sentiment analysis judges tone.",
+          "C": "Image classification is a vision task.",
+          "D": "Language detection identifies the language."
+        }
+      },
+      "tags": ["text-analysis", "pii", "scenario"]
+    },
+    {
+      "id": "wl-011",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A medical imaging tool must outline the exact pixels belonging to a tumour in a scan, producing a precise mask rather than a box. Which computer vision task is this?",
+      "options": [
+        { "key": "A", "text": "Semantic segmentation" },
+        { "key": "B", "text": "Object detection" },
+        { "key": "C", "text": "Image classification" },
+        { "key": "D", "text": "Image generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Classifying individual pixels by object to create precise masks is semantic segmentation.",
+        "distractors": {
+          "B": "Object detection gives bounding boxes, not pixel-precise masks.",
+          "C": "Classification gives one label for the whole image.",
+          "D": "Image generation creates new images."
+        }
+      },
+      "tags": ["computer-vision", "segmentation", "scenario"]
+    },
+    {
+      "id": "wl-012",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "An executive wants long internal reports condensed into a few key points while keeping the main message. Which technique fits?",
+      "options": [
+        { "key": "A", "text": "Summarisation" },
+        { "key": "B", "text": "Entity detection" },
+        { "key": "C", "text": "Object detection" },
+        { "key": "D", "text": "PII detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Reducing text volume while keeping the main points is summarisation.",
+        "distractors": {
+          "B": "Entity detection finds named entities.",
+          "C": "Object detection is a vision task.",
+          "D": "PII detection finds personal data."
+        }
+      },
+      "tags": ["text-analysis", "summarisation", "scenario"]
+    },
+    {
+      "id": "wl-013",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A product team wants to pull out the main concepts and talking points from thousands of customer reviews (e.g., 'battery life', 'screen quality'). Which technique fits?",
+      "options": [
+        { "key": "A", "text": "Key phrase extraction" },
+        { "key": "B", "text": "Sentiment analysis" },
+        { "key": "C", "text": "Language detection" },
+        { "key": "D", "text": "Speech synthesis" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Identifying the main concepts/talking points from text is key phrase extraction.",
+        "distractors": {
+          "B": "Sentiment analysis would judge whether reviews are positive/negative, not extract topics.",
+          "C": "Language detection identifies the language.",
+          "D": "Speech synthesis vocalises text."
+        }
+      },
+      "tags": ["text-analysis", "key-phrase", "scenario"]
+    },
+    {
+      "id": "wl-014",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A news aggregator wants to automatically tag each article with the people, organisations, and places it mentions. Which technique is this?",
+      "options": [
+        { "key": "A", "text": "Entity detection (named entity recognition)" },
+        { "key": "B", "text": "Summarisation" },
+        { "key": "C", "text": "Sentiment analysis" },
+        { "key": "D", "text": "Image classification" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Finding people, organisations, places, dates and quantities in text is entity detection (NER).",
+        "distractors": {
+          "B": "Summarisation shortens text.",
+          "C": "Sentiment analysis judges tone.",
+          "D": "Image classification is a vision task."
+        }
+      },
+      "tags": ["text-analysis", "entity-detection", "scenario"]
+    },
+    {
+      "id": "wl-015",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A solution must understand a user's goal, then use tools to look up flights, book one, and email a confirmation, deciding the steps itself. Which workload best describes this?",
+      "options": [
+        { "key": "A", "text": "Agentic AI" },
+        { "key": "B", "text": "Image classification" },
+        { "key": "C", "text": "Sentiment analysis" },
+        { "key": "D", "text": "Speech synthesis" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A system that reasons toward a goal and uses tools to take multi-step actions is an AI agent (agentic AI = model + instructions + tools).",
+        "distractors": {
+          "B": "Image classification labels images.",
+          "C": "Sentiment analysis judges tone.",
+          "D": "Speech synthesis vocalises text."
+        }
+      },
+      "tags": ["generative-ai", "agents", "scenario"]
+    },
+    {
+      "id": "wl-016",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A studio types a prompt and the system produces a short moving video clip that obeys physical motion and a logical sequence of events. Which workload is this?",
+      "options": [
+        { "key": "A", "text": "Video generation (generative AI)" },
+        { "key": "B", "text": "Object detection" },
+        { "key": "C", "text": "Semantic segmentation" },
+        { "key": "D", "text": "Speech recognition" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Creating new video from a prompt, accounting for physical behaviour and temporal progression, is video generation.",
+        "distractors": {
+          "B": "Object detection finds objects in existing media.",
+          "C": "Segmentation masks pixels in existing images.",
+          "D": "Speech recognition handles audio to text."
+        }
+      },
+      "tags": ["generative-ai", "video-generation", "scenario"]
+    },
+    {
+      "id": "wl-017",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "An app receives a photo and returns a natural-language sentence describing the scene, e.g., 'A person in a park with a hat and a backpack.' Which capability is this?",
+      "options": [
+        { "key": "A", "text": "Multimodal (contextual image analysis)" },
+        { "key": "B", "text": "Image classification" },
+        { "key": "C", "text": "OCR" },
+        { "key": "D", "text": "Object detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Generating a natural-language description of an image is a multimodal capability (vision + language).",
+        "distractors": {
+          "B": "Classification returns a single label, not a descriptive sentence.",
+          "C": "OCR reads text within an image.",
+          "D": "Object detection returns objects + boxes, not a fluent description."
+        }
+      },
+      "tags": ["computer-vision", "multimodal", "scenario"]
+    },
+    {
+      "id": "wl-018",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "An archive wants to digitise thousands of handwritten census forms so the text becomes searchable. Which workload is the starting point?",
+      "options": [
+        { "key": "A", "text": "Optical character recognition (information extraction)" },
+        { "key": "B", "text": "Sentiment analysis" },
+        { "key": "C", "text": "Speech recognition" },
+        { "key": "D", "text": "Image generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Converting text in scanned/handwritten documents into machine-readable text is OCR, the basis of information extraction.",
+        "distractors": {
+          "B": "Sentiment analysis judges tone.",
+          "C": "Speech recognition handles audio.",
+          "D": "Image generation creates new images."
+        }
+      },
+      "tags": ["information-extraction", "ocr", "scenario"]
+    },
+    {
+      "id": "wl-019",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A voice assistant in a car lets the driver speak a command and replies out loud. Which TWO workloads combine here?",
+      "options": [
+        { "key": "A", "text": "Speech recognition (STT) and speech synthesis (TTS)" },
+        { "key": "B", "text": "OCR and image classification" },
+        { "key": "C", "text": "Object detection and segmentation" },
+        { "key": "D", "text": "Sentiment analysis and PII detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Listening to a spoken command (STT) and replying aloud (TTS) combines speech recognition and speech synthesis.",
+        "distractors": {
+          "B": "OCR/classification are vision tasks, not voice.",
+          "C": "These are vision tasks.",
+          "D": "These are text-analysis techniques, not the listen+speak loop."
+        }
+      },
+      "tags": ["speech", "stt", "tts", "scenario"]
+    },
+    {
+      "id": "wl-020",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A helpdesk wants to automatically assign each incoming text ticket to a category such as 'billing', 'technical', or 'account'. Which technique is this?",
+      "options": [
+        { "key": "A", "text": "Text classification" },
+        { "key": "B", "text": "Key phrase extraction" },
+        { "key": "C", "text": "Language detection" },
+        { "key": "D", "text": "Object detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Assigning text to predefined categories is text classification (sentiment analysis is one special case of it).",
+        "distractors": {
+          "B": "Key phrase extraction pulls concepts, it doesn't assign a category.",
+          "C": "Language detection identifies the language.",
+          "D": "Object detection is a vision task."
+        }
+      },
+      "tags": ["text-analysis", "classification", "scenario"]
+    },
+    {
+      "id": "wl-021",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What does sentiment analysis do?",
+      "options": [
+        { "key": "A", "text": "Classifies text as positive, negative, or neutral" },
+        { "key": "B", "text": "Detects the language of a document" },
+        { "key": "C", "text": "Extracts named people and places" },
+        { "key": "D", "text": "Converts speech to text" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Sentiment analysis classifies the emotional tone of text as positive/negative/neutral.",
+        "distractors": {
+          "B": "That is language detection.",
+          "C": "That is entity detection.",
+          "D": "That is speech recognition."
+        }
+      },
+      "tags": ["text-analysis", "sentiment", "definition"]
+    },
+    {
+      "id": "wl-022",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What is key phrase extraction?",
+      "options": [
+        { "key": "A", "text": "Identifying the main concepts/talking points in text" },
+        { "key": "B", "text": "Reducing a document to a shorter version" },
+        { "key": "C", "text": "Classifying sentiment" },
+        { "key": "D", "text": "Finding personal data to redact" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Key phrase extraction identifies the main concepts in unstructured text.",
+        "distractors": {
+          "B": "That is summarisation.",
+          "C": "That is sentiment analysis.",
+          "D": "That is PII detection."
+        }
+      },
+      "tags": ["text-analysis", "key-phrase", "definition"]
+    },
+    {
+      "id": "wl-023",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Entity detection (NER) is used to identify which of the following in text?",
+      "options": [
+        { "key": "A", "text": "People, places, organisations, dates, and quantities" },
+        { "key": "B", "text": "The overall positive/negative tone" },
+        { "key": "C", "text": "The language the text is written in" },
+        { "key": "D", "text": "The pixels belonging to each object" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Entity detection finds named entities such as people, places, organisations, dates and quantities.",
+        "distractors": {
+          "B": "That is sentiment analysis.",
+          "C": "That is language detection.",
+          "D": "That is semantic segmentation (a vision task)."
+        }
+      },
+      "tags": ["text-analysis", "entity-detection", "definition"]
+    },
+    {
+      "id": "wl-024",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "What distinguishes abstractive summarisation from extractive summarisation?",
+      "options": [
+        { "key": "A", "text": "Abstractive generates new wording; extractive selects existing sentences" },
+        { "key": "B", "text": "Abstractive selects existing sentences; extractive generates new wording" },
+        { "key": "C", "text": "Both only copy sentences verbatim" },
+        { "key": "D", "text": "Both invent entirely new facts not in the source" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Abstractive summarisation generates new language summarising themes; extractive summarisation selects existing sentences (e.g., TextRank).",
+        "distractors": {
+          "B": "Definitions reversed.",
+          "C": "Only extractive copies; abstractive rewrites.",
+          "D": "A good summariser should not invent facts; this is not the distinction."
+        }
+      },
+      "tags": ["text-analysis", "summarisation", "definition"]
+    },
+    {
+      "id": "wl-025",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the key difference between image classification and object detection?",
+      "options": [
+        { "key": "A", "text": "Classification predicts one label for the whole image; object detection finds multiple objects and their locations" },
+        { "key": "B", "text": "Classification finds object locations; object detection predicts one whole-image label" },
+        { "key": "C", "text": "Both label individual pixels" },
+        { "key": "D", "text": "Both generate new images from prompts" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Classification = one label for the main subject; object detection = locate multiple objects with bounding boxes.",
+        "distractors": {
+          "B": "Definitions reversed.",
+          "C": "Pixel-level labelling is semantic segmentation.",
+          "D": "Generating images is image generation."
+        }
+      },
+      "tags": ["computer-vision", "classification", "object-detection", "definition"]
+    },
+    {
+      "id": "wl-026",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which statement correctly describes speech-to-text vs text-to-speech?",
+      "options": [
+        { "key": "A", "text": "STT converts audio to text; TTS converts text to audio" },
+        { "key": "B", "text": "STT converts text to audio; TTS converts audio to text" },
+        { "key": "C", "text": "Both convert images to text" },
+        { "key": "D", "text": "Both translate between languages only" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Speech recognition (STT) = audio to text; speech synthesis (TTS) = text to audio.",
+        "distractors": {
+          "B": "Definitions reversed.",
+          "C": "Image-to-text is OCR.",
+          "D": "Translation is a separate capability."
+        }
+      },
+      "tags": ["speech", "stt", "tts", "definition"]
+    },
+    {
+      "id": "wl-027",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What is the primary purpose of optical character recognition (OCR)?",
+      "options": [
+        { "key": "A", "text": "Detect and read text that appears within images or scanned documents" },
+        { "key": "B", "text": "Generate images from text prompts" },
+        { "key": "C", "text": "Classify the sentiment of a sentence" },
+        { "key": "D", "text": "Convert spoken audio to text" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "OCR detects and reads text within images/scanned documents, the first step of information extraction.",
+        "distractors": {
+          "B": "That is image generation.",
+          "C": "That is sentiment analysis.",
+          "D": "That is speech recognition."
+        }
+      },
+      "tags": ["information-extraction", "ocr", "definition"]
+    },
+    {
+      "id": "wl-028",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which best distinguishes object detection from semantic segmentation?",
+      "options": [
+        { "key": "A", "text": "Object detection draws bounding boxes around objects; segmentation labels every pixel belonging to each object" },
+        { "key": "B", "text": "Object detection labels every pixel; segmentation draws bounding boxes" },
+        { "key": "C", "text": "Both only return a single whole-image label" },
+        { "key": "D", "text": "Both only work on text, not images" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Object detection = bounding boxes; semantic segmentation = pixel-level masks.",
+        "distractors": {
+          "B": "Definitions reversed.",
+          "C": "A single whole-image label is classification.",
+          "D": "Both are computer-vision (image) tasks."
+        }
+      },
+      "tags": ["computer-vision", "object-detection", "segmentation", "definition"]
+    },
+    {
+      "id": "wl-029",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Retrieval-Augmented Generation (RAG) is used in a generative AI solution primarily to do what?",
+      "options": [
+        { "key": "A", "text": "Retrieve relevant documents and add them to the prompt so responses are grounded in your data" },
+        { "key": "B", "text": "Convert speech to text before answering" },
+        { "key": "C", "text": "Detect objects in an image" },
+        { "key": "D", "text": "Compress a model to run on a device" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "RAG retrieves relevant source documents and augments the prompt, grounding the model's response in your data.",
+        "distractors": {
+          "B": "That is speech recognition.",
+          "C": "That is object detection.",
+          "D": "That describes model optimisation/SLMs, not RAG."
+        }
+      },
+      "tags": ["generative-ai", "rag", "definition"]
+    },
+    {
+      "id": "wl-030",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "How does information extraction differ from general text analysis?",
+      "options": [
+        { "key": "A", "text": "Information extraction pulls structured field values from documents/forms (often via OCR first); text analysis interprets meaning within already-digital text" },
+        { "key": "B", "text": "They are identical and interchangeable" },
+        { "key": "C", "text": "Information extraction only works on audio" },
+        { "key": "D", "text": "Text analysis only works on images" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Information extraction turns unstructured content (scanned forms, images) into structured fields, typically starting with OCR; text analysis interprets meaning in text that is already digital.",
+        "distractors": {
+          "B": "They overlap but are distinct workloads.",
+          "C": "Information extraction works on documents, images, and increasingly audio/video, not only audio.",
+          "D": "Text analysis works on text, not images."
+        }
+      },
+      "tags": ["information-extraction", "text-analysis", "definition"]
+    },
+    {
+      "id": "wl-031",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A bank wants to flag, within free-text complaints, every mention of an account number and customer name. This is closest to which technique?",
+      "options": [
+        { "key": "A", "text": "Entity / PII detection" },
+        { "key": "B", "text": "Summarisation" },
+        { "key": "C", "text": "Image classification" },
+        { "key": "D", "text": "Speech synthesis" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Finding specific entities like names and identifiers in text is entity detection, and when it includes personal data, PII detection.",
+        "distractors": {
+          "B": "Summarisation shortens text.",
+          "C": "Classification is a vision task here / whole-item labelling.",
+          "D": "Speech synthesis vocalises text."
+        }
+      },
+      "tags": ["text-analysis", "entity-detection", "pii", "scenario"]
+    },
+    {
+      "id": "wl-032",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which scenario is best solved by a generative AI workload rather than a traditional classification model?",
+      "options": [
+        { "key": "A", "text": "Drafting a unique personalised email reply from a short brief" },
+        { "key": "B", "text": "Predicting whether an image is a cat or a dog" },
+        { "key": "C", "text": "Detecting the language of a sentence" },
+        { "key": "D", "text": "Locating cars in a traffic photo" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Producing new, original content (a drafted email) is a generative AI task.",
+        "distractors": {
+          "B": "Cat-vs-dog is image classification.",
+          "C": "That is language detection.",
+          "D": "That is object detection."
+        }
+      },
+      "tags": ["generative-ai", "scenario"]
+    },
+    {
+      "id": "wl-033",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which TWO of the following are computer vision tasks? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Object detection" },
+        { "key": "B", "text": "Semantic segmentation" },
+        { "key": "C", "text": "Sentiment analysis" },
+        { "key": "D", "text": "Language detection" },
+        { "key": "E", "text": "Text-to-speech" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Object detection and semantic segmentation are computer vision tasks.",
+        "distractors": {
+          "C": "Sentiment analysis is a text-analysis technique.",
+          "D": "Language detection is a text-analysis technique.",
+          "E": "Text-to-speech is a speech workload."
+        }
+      },
+      "tags": ["computer-vision", "multi-select"]
+    },
+    {
+      "id": "wl-034",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which THREE of the following are text-analysis (NLP) techniques? (Choose three.)",
+      "options": [
+        { "key": "A", "text": "Key phrase extraction" },
+        { "key": "B", "text": "Entity detection" },
+        { "key": "C", "text": "Sentiment analysis" },
+        { "key": "D", "text": "Object detection" },
+        { "key": "E", "text": "Image generation" }
+      ],
+      "correct": ["A", "B", "C"],
+      "explanation": {
+        "correct": "Key phrase extraction, entity detection, and sentiment analysis are all text-analysis techniques.",
+        "distractors": {
+          "D": "Object detection is a computer vision task.",
+          "E": "Image generation is a generative AI / vision task."
+        }
+      },
+      "tags": ["text-analysis", "multi-select"]
+    },
+    {
+      "id": "wl-035",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO scenarios are best addressed by generative AI? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Writing a first draft of a blog post from bullet points" },
+        { "key": "B", "text": "An assistant that summarises and rewrites a document into plain language" },
+        { "key": "C", "text": "Counting how many red pixels are in an image" },
+        { "key": "D", "text": "Measuring the loudness of an audio clip" },
+        { "key": "E", "text": "Detecting the language of a paragraph" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Drafting new content (A) and rewriting/summarising into new language (B) are generative AI tasks.",
+        "distractors": {
+          "C": "Counting pixels is basic image processing, not generative AI.",
+          "D": "Measuring loudness is signal processing.",
+          "E": "Language detection is a deterministic text-analysis technique."
+        }
+      },
+      "tags": ["generative-ai", "multi-select"]
+    },
+    {
+      "id": "wl-036",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A retail chain is building several AI features. (1) It wants to automatically describe product photos in plain English for its catalogue. (2) It wants to pull line items and totals from scanned supplier receipts into its finance system. (3) It wants a chat assistant that answers shopper questions conversationally.",
+      "subQuestions": [
+        {
+          "id": "wl-036-a",
+          "type": "single",
+          "stem": "Feature (1) — describe product photos in plain English — needs which capability?",
+          "options": [
+            { "key": "A", "text": "Multimodal image description (computer vision)" },
+            { "key": "B", "text": "Speech recognition" },
+            { "key": "C", "text": "PII detection" },
+            { "key": "D", "text": "Object detection only" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Generating natural-language descriptions of images is a multimodal computer vision capability.",
+            "distractors": {
+              "B": "Speech recognition handles audio.",
+              "C": "PII detection finds personal data in text.",
+              "D": "Object detection returns boxes, not fluent descriptions."
+            }
+          }
+        },
+        {
+          "id": "wl-036-b",
+          "type": "single",
+          "stem": "Feature (2) — pull line items and totals from scanned receipts — needs which workload?",
+          "options": [
+            { "key": "A", "text": "Information extraction" },
+            { "key": "B", "text": "Image generation" },
+            { "key": "C", "text": "Sentiment analysis" },
+            { "key": "D", "text": "Text-to-speech" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Extracting structured fields from scanned documents is information extraction (OCR + field mapping).",
+            "distractors": {
+              "B": "Image generation creates images.",
+              "C": "Sentiment analysis judges tone.",
+              "D": "TTS vocalises text."
+            }
+          }
+        },
+        {
+          "id": "wl-036-c",
+          "type": "single",
+          "stem": "Feature (3) — a conversational shopper assistant — is which workload?",
+          "options": [
+            { "key": "A", "text": "Generative AI (chat)" },
+            { "key": "B", "text": "Semantic segmentation" },
+            { "key": "C", "text": "OCR" },
+            { "key": "D", "text": "Language detection" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "A conversational natural-language assistant is a generative AI (chat) workload.",
+            "distractors": {
+              "B": "Segmentation is a vision task.",
+              "C": "OCR reads text in images.",
+              "D": "Language detection only identifies language."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "computer-vision", "information-extraction", "generative-ai"]
+    },
+    {
+      "id": "wl-037",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A hospital is adding AI features. (1) Doctors dictate notes aloud and want them typed into the patient record. (2) The system should read discharge instructions aloud for patients with low vision. (3) Staff want to extract structured fields from scanned referral forms.",
+      "subQuestions": [
+        {
+          "id": "wl-037-a",
+          "type": "single",
+          "stem": "Feature (1) — dictation typed into the record — needs which workload?",
+          "options": [
+            { "key": "A", "text": "Speech recognition (speech-to-text)" },
+            { "key": "B", "text": "Speech synthesis (text-to-speech)" },
+            { "key": "C", "text": "Information extraction" },
+            { "key": "D", "text": "Object detection" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Turning spoken dictation into text is speech recognition (STT).",
+            "distractors": {
+              "B": "TTS goes the other way.",
+              "C": "Information extraction handles documents.",
+              "D": "Object detection is a vision task."
+            }
+          }
+        },
+        {
+          "id": "wl-037-b",
+          "type": "single",
+          "stem": "Feature (2) — read instructions aloud for low-vision patients — needs which workload?",
+          "options": [
+            { "key": "A", "text": "Speech synthesis (text-to-speech)" },
+            { "key": "B", "text": "Speech recognition (speech-to-text)" },
+            { "key": "C", "text": "Sentiment analysis" },
+            { "key": "D", "text": "OCR" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Reading text aloud is speech synthesis (TTS); it also supports the Inclusiveness principle.",
+            "distractors": {
+              "B": "STT converts audio to text.",
+              "C": "Sentiment analysis judges tone.",
+              "D": "OCR reads text from images."
+            }
+          }
+        },
+        {
+          "id": "wl-037-c",
+          "type": "single",
+          "stem": "Feature (3) — extract structured fields from scanned referral forms — needs which workload?",
+          "options": [
+            { "key": "A", "text": "Information extraction" },
+            { "key": "B", "text": "Image generation" },
+            { "key": "C", "text": "Text-to-speech" },
+            { "key": "D", "text": "Semantic segmentation" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Pulling structured fields from scanned forms is information extraction.",
+            "distractors": {
+              "B": "Image generation creates images.",
+              "C": "TTS vocalises text.",
+              "D": "Segmentation masks pixels."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "speech", "information-extraction"]
+    },
+    {
+      "id": "wl-038",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A security system must recognise and verify a specific individual's face to grant building access. Which broad workload does this fall under?",
+      "options": [
+        { "key": "A", "text": "Computer vision (facial recognition)" },
+        { "key": "B", "text": "Text analysis" },
+        { "key": "C", "text": "Information extraction" },
+        { "key": "D", "text": "Speech synthesis" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Facial recognition analyses visual input and is a computer vision workload.",
+        "distractors": {
+          "B": "Text analysis works on text.",
+          "C": "Information extraction pulls fields from documents.",
+          "D": "Speech synthesis vocalises text."
+        }
+      },
+      "tags": ["computer-vision", "scenario"]
+    },
+    {
+      "id": "wl-039",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "An email provider wants to automatically label messages as 'spam' or 'not spam' based on their wording. Which workload/technique is this?",
+      "options": [
+        { "key": "A", "text": "Text classification" },
+        { "key": "B", "text": "Image classification" },
+        { "key": "C", "text": "Speech recognition" },
+        { "key": "D", "text": "Object detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Labelling text into categories (spam/not spam) is text classification, a text-analysis technique.",
+        "distractors": {
+          "B": "Image classification works on images.",
+          "C": "Speech recognition handles audio.",
+          "D": "Object detection is a vision task."
+        }
+      },
+      "tags": ["text-analysis", "classification", "scenario"]
+    },
+    {
+      "id": "wl-040",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A team needs to extract spoken action items from recorded meeting AUDIO. Which combination of workloads is most appropriate?",
+      "options": [
+        { "key": "A", "text": "Speech recognition to transcribe, then text analysis/summarisation to extract action items" },
+        { "key": "B", "text": "OCR to read the audio, then image generation" },
+        { "key": "C", "text": "Object detection, then semantic segmentation" },
+        { "key": "D", "text": "Text-to-speech, then image classification" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Audio must first be transcribed (speech recognition), then text analysis/summarisation extracts the action items.",
+        "distractors": {
+          "B": "OCR reads images, not audio; image generation is irrelevant.",
+          "C": "These are vision tasks unrelated to audio.",
+          "D": "TTS produces audio; image classification is unrelated."
+        }
+      },
+      "tags": ["speech", "text-analysis", "scenario"]
+    }
+  ]
+}

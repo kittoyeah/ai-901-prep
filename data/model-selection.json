@@ -1,0 +1,984 @@
+{
+  "section": "model-selection",
+  "title": "AI Model Components, Selection & Configuration",
+  "blueprintRef": "Identify AI concepts and capabilities (40-45%) > Identify AI model components and configurations",
+  "source": "Concepts 2, Module 2 (Generative AI and Agents)",
+  "questions": [
+    {
+      "id": "ms-001",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What is a 'token' in the context of a large language model?",
+      "options": [
+        { "key": "A", "text": "The smallest unit of text a model processes — words, sub-words, characters, or punctuation" },
+        { "key": "B", "text": "A security credential used to call the model" },
+        { "key": "C", "text": "A complete sentence" },
+        { "key": "D", "text": "The model's confidence score" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Tokens are the smallest units of text the model works with: words, sub-words, characters, and punctuation, each with an integer ID.",
+        "distractors": {
+          "B": "That is an API key/auth token, a different meaning.",
+          "C": "Tokens are usually smaller than a full sentence.",
+          "D": "A confidence score is not a token."
+        }
+      },
+      "tags": ["genai-internals", "tokens", "definition"]
+    },
+    {
+      "id": "ms-002",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Why do LLMs use sub-word tokens (e.g., 'un' in 'unbelievable') rather than only whole words?",
+      "options": [
+        { "key": "A", "text": "Sub-word tokens let a fixed vocabulary represent rare or unseen words by combining pieces" },
+        { "key": "B", "text": "Sub-words make the model run without any GPU" },
+        { "key": "C", "text": "Sub-words remove the need for embeddings" },
+        { "key": "D", "text": "Sub-words guarantee the model never makes mistakes" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Sub-word tokenisation lets a bounded vocabulary cover rare/unseen words by composing them from smaller pieces.",
+        "distractors": {
+          "B": "Tokenisation does not remove hardware needs.",
+          "C": "Tokens are still mapped to embeddings.",
+          "D": "Models remain probabilistic regardless of tokenisation."
+        }
+      },
+      "tags": ["genai-internals", "tokens"]
+    },
+    {
+      "id": "ms-003",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "In a transformer, what is the role of the encoder versus the decoder?",
+      "options": [
+        { "key": "A", "text": "The encoder creates embeddings using attention; the decoder predicts the next token from those embeddings" },
+        { "key": "B", "text": "The encoder predicts the next token; the decoder stores the vocabulary" },
+        { "key": "C", "text": "Both only store training data" },
+        { "key": "D", "text": "The encoder renders images; the decoder plays audio" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The encoder builds context-aware embeddings via attention; the decoder uses them to predict the next most probable token, one at a time.",
+        "distractors": {
+          "B": "Roles reversed and inaccurate.",
+          "C": "They transform representations, not merely store data.",
+          "D": "These are not the encoder/decoder roles."
+        }
+      },
+      "tags": ["genai-internals", "transformer"]
+    },
+    {
+      "id": "ms-004",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "What does the attention mechanism do when processing a token?",
+      "options": [
+        { "key": "A", "text": "Weights how much each surrounding token influences the current token to build its embedding" },
+        { "key": "B", "text": "Deletes tokens that appear too often" },
+        { "key": "C", "text": "Encrypts the prompt" },
+        { "key": "D", "text": "Counts the number of words in the prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Attention assigns weights to surrounding tokens reflecting their influence on the current token, shaping its embedding.",
+        "distractors": {
+          "B": "Attention does not delete frequent tokens.",
+          "C": "Attention is not encryption.",
+          "D": "It is not a word counter."
+        }
+      },
+      "tags": ["genai-internals", "attention"]
+    },
+    {
+      "id": "ms-005",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is an embedding in a language model?",
+      "options": [
+        { "key": "A", "text": "A vector that encodes a token's linguistic and semantic characteristics based on context" },
+        { "key": "B", "text": "The API endpoint used to call the model" },
+        { "key": "C", "text": "A compressed copy of the training dataset" },
+        { "key": "D", "text": "The temperature setting" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Embeddings are vectors encoding semantic/linguistic meaning; tokens used in similar contexts get similar vector directions.",
+        "distractors": {
+          "B": "That is the deployment endpoint.",
+          "C": "Embeddings are not a copy of the dataset.",
+          "D": "Temperature is a generation parameter, not an embedding."
+        }
+      },
+      "tags": ["genai-internals", "embeddings", "definition"]
+    },
+    {
+      "id": "ms-006",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Cosine similarity between two token embeddings tells you what?",
+      "options": [
+        { "key": "A", "text": "How semantically similar the two tokens are (closer to 1 = more similar)" },
+        { "key": "B", "text": "How many tokens are in the prompt" },
+        { "key": "C", "text": "The cost of running the model" },
+        { "key": "D", "text": "The model's training date" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Cosine similarity measures how aligned two vectors are; near 1 = very similar meaning, near 0 = unrelated.",
+        "distractors": {
+          "B": "It is not a token count.",
+          "C": "It is not a cost metric.",
+          "D": "It says nothing about training date."
+        }
+      },
+      "tags": ["genai-internals", "embeddings"]
+    },
+    {
+      "id": "ms-007",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "How does a generative model produce a completion?",
+      "options": [
+        { "key": "A", "text": "It predicts the next most probable token, appends it, and repeats until an end condition" },
+        { "key": "B", "text": "It retrieves a stored answer matching the prompt exactly" },
+        { "key": "C", "text": "It outputs all tokens of the vocabulary at once" },
+        { "key": "D", "text": "It randomly returns any sentence from training data" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The decoder iteratively predicts the next token, adds it to the sequence, and repeats until end-of-sequence.",
+        "distractors": {
+          "B": "It generates, it does not look up stored answers.",
+          "C": "It predicts one token at a time, not the whole vocabulary.",
+          "D": "Output is probabilistic generation, not random retrieval of training text."
+        }
+      },
+      "tags": ["genai-internals", "completions"]
+    },
+    {
+      "id": "ms-008",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Why does a transformer use positional encoding?",
+      "options": [
+        { "key": "A", "text": "Because token order matters, the model needs to know where each token appears in the sequence" },
+        { "key": "B", "text": "To encrypt user data at rest" },
+        { "key": "C", "text": "To reduce the model's parameter count to zero" },
+        { "key": "D", "text": "To set the temperature automatically" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Positional encoding tells the model the order/position of tokens, which affects meaning.",
+        "distractors": {
+          "B": "It is not encryption.",
+          "C": "It does not change parameter counts to zero.",
+          "D": "It is unrelated to temperature."
+        }
+      },
+      "tags": ["genai-internals", "transformer"]
+    },
+    {
+      "id": "ms-009",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Compared with a large language model (LLM), a small language model (SLM) is generally best when you need what?",
+      "options": [
+        { "key": "A", "text": "Lower cost and the ability to run in focused domains or on-device" },
+        { "key": "B", "text": "The broadest possible general knowledge at any cost" },
+        { "key": "C", "text": "To eliminate the need for prompts" },
+        { "key": "D", "text": "Guaranteed perfect accuracy" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "SLMs trade some breadth for lower cost and suitability to focused domains and local/device deployment.",
+        "distractors": {
+          "B": "Broadest general capability favours LLMs.",
+          "C": "Prompts are still required.",
+          "D": "No model guarantees perfect accuracy."
+        }
+      },
+      "tags": ["model-selection", "llm-slm"]
+    },
+    {
+      "id": "ms-010",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You need to convert text into vectors for a semantic search index. Which type of model should you choose?",
+      "options": [
+        { "key": "A", "text": "An embeddings model (e.g., text-embedding-3-small)" },
+        { "key": "B", "text": "An image-generation model" },
+        { "key": "C", "text": "A speech synthesis model" },
+        { "key": "D", "text": "A video-generation model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Producing vectors for semantic search is the job of an embeddings model such as text-embedding-3-small.",
+        "distractors": {
+          "B": "Image generation creates images.",
+          "C": "Speech synthesis makes audio.",
+          "D": "Video generation makes video."
+        }
+      },
+      "tags": ["model-selection", "embeddings"]
+    },
+    {
+      "id": "ms-011",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A team needs a model tuned for generating and reasoning about source code. Which is the most appropriate choice?",
+      "options": [
+        { "key": "A", "text": "A coding-optimised model (e.g., GPT-5.1-codex or Claude Sonnet)" },
+        { "key": "B", "text": "text-embedding-3-small" },
+        { "key": "C", "text": "An image-generation model" },
+        { "key": "D", "text": "A speech-to-text model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Coding tasks are best served by coding-optimised models like GPT-5.1-codex or Claude Sonnet.",
+        "distractors": {
+          "B": "Embeddings models produce vectors, not code.",
+          "C": "Image generation is unrelated.",
+          "D": "Speech-to-text transcribes audio."
+        }
+      },
+      "tags": ["model-selection", "coding"]
+    },
+    {
+      "id": "ms-012",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Your app must accept both an image and a text question in a single request and answer about the image. Which model capability do you need?",
+      "options": [
+        { "key": "A", "text": "A multimodal model (e.g., GPT-4.1 vision or Phi-4-multimodal)" },
+        { "key": "B", "text": "A text-only embeddings model" },
+        { "key": "C", "text": "A speech synthesis model" },
+        { "key": "D", "text": "An OCR-only model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Handling image + text together requires a multimodal model.",
+        "distractors": {
+          "B": "Embeddings models do not chat about images.",
+          "C": "Speech synthesis produces audio.",
+          "D": "OCR only reads text in images, it does not reason about the scene with a text question."
+        }
+      },
+      "tags": ["model-selection", "multimodal"]
+    },
+    {
+      "id": "ms-013",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You need a model available to all (no special registration) optimised for real-time, low-latency, high-volume chat. Which is the best fit per the course?",
+      "options": [
+        { "key": "A", "text": "GPT-4.1" },
+        { "key": "B", "text": "A GPT-5 family model requiring registration" },
+        { "key": "C", "text": "text-embedding-3-small" },
+        { "key": "D", "text": "Sora" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The course notes GPT-4.1 is available to all and optimised for real-time chat, low latency, and high-volume production.",
+        "distractors": {
+          "B": "GPT-5 family currently requires registration.",
+          "C": "Embeddings models do not power chat UX.",
+          "D": "Sora is for video generation."
+        }
+      },
+      "tags": ["model-selection", "chat"]
+    },
+    {
+      "id": "ms-014",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You want to create brand-new images from text prompts. Which model type should you deploy?",
+      "options": [
+        { "key": "A", "text": "An image-generation model (e.g., GPT-Image-1)" },
+        { "key": "B", "text": "An embeddings model" },
+        { "key": "C", "text": "A speech-to-text model" },
+        { "key": "D", "text": "A text classification model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Generating images from text needs an image-generation model such as GPT-Image-1.",
+        "distractors": {
+          "B": "Embeddings models output vectors.",
+          "C": "STT transcribes audio.",
+          "D": "Classification labels existing text/images."
+        }
+      },
+      "tags": ["model-selection", "image-generation"]
+    },
+    {
+      "id": "ms-015",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Your scenario requires generating short video clips from prompts. Which model family fits?",
+      "options": [
+        { "key": "A", "text": "A video-generation model (e.g., Sora)" },
+        { "key": "B", "text": "GPT-4.1 chat" },
+        { "key": "C", "text": "text-embedding-3-small" },
+        { "key": "D", "text": "A speech synthesis model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Video from prompts requires a video-generation model such as Sora.",
+        "distractors": {
+          "B": "Chat models generate text.",
+          "C": "Embeddings models produce vectors.",
+          "D": "Speech synthesis produces audio."
+        }
+      },
+      "tags": ["model-selection", "video-generation"]
+    },
+    {
+      "id": "ms-016",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "You are building an agent that must plan multi-step workflows and reason carefully, accepting higher latency for better accuracy. Which model family is most appropriate?",
+      "options": [
+        { "key": "A", "text": "A reasoning-oriented model (e.g., GPT-5.x with adjustable thinking levels)" },
+        { "key": "B", "text": "text-embedding-3-small" },
+        { "key": "C", "text": "An OCR model" },
+        { "key": "D", "text": "A speech-to-text model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Multi-step reasoning and agentic planning suit GPT-5.x reasoning models with adjustable thinking levels (speed vs accuracy).",
+        "distractors": {
+          "B": "Embeddings models do not reason or plan.",
+          "C": "OCR reads text in images.",
+          "D": "STT transcribes audio."
+        }
+      },
+      "tags": ["model-selection", "reasoning", "agents"]
+    },
+    {
+      "id": "ms-017",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You need strong multilingual drafting of business reports with a good cost/performance balance. Which model does the course suggest?",
+      "options": [
+        { "key": "A", "text": "Mistral Large 3" },
+        { "key": "B", "text": "text-embedding-3-small" },
+        { "key": "C", "text": "Sora" },
+        { "key": "D", "text": "GPT-Image-1" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Mistral Large 3 is highlighted for multilingual drafting, business reports, and good cost/performance balance.",
+        "distractors": {
+          "B": "Embeddings models produce vectors.",
+          "C": "Sora is for video.",
+          "D": "GPT-Image-1 is for images."
+        }
+      },
+      "tags": ["model-selection", "multilingual"]
+    },
+    {
+      "id": "ms-018",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "For a well-defined, common use case where predictable performance and built-in compliance matter more than customisation, what does the course recommend considering before custom model selection?",
+      "options": [
+        { "key": "A", "text": "Prebuilt Foundry Tools models" },
+        { "key": "B", "text": "Training a model from scratch" },
+        { "key": "C", "text": "A video-generation model" },
+        { "key": "D", "text": "An embeddings model only" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "For well-defined use cases, prebuilt Foundry Tools offer predictable performance, built-in compliance, and faster time-to-value.",
+        "distractors": {
+          "B": "Training from scratch is rarely needed and costly.",
+          "C": "Video generation is unrelated to the general recommendation.",
+          "D": "Embeddings alone do not cover a general use case."
+        }
+      },
+      "tags": ["model-selection", "foundry-tools"]
+    },
+    {
+      "id": "ms-019",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is a 'foundation model'?",
+      "options": [
+        { "key": "A", "text": "A large pretrained model providing general capabilities that can be used directly or fine-tuned" },
+        { "key": "B", "text": "A model that only works after you train it from scratch" },
+        { "key": "C", "text": "A model that runs only on a single device" },
+        { "key": "D", "text": "A deployment configuration setting" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Foundation models (e.g., GPT, Claude, Mistral) are large pretrained models offering general capabilities out of the box, deployable immediately or fine-tunable.",
+        "distractors": {
+          "B": "They are pretrained, not trained from scratch by you.",
+          "C": "They are not restricted to single-device use.",
+          "D": "It is a class of model, not a config setting."
+        }
+      },
+      "tags": ["model-selection", "definition"]
+    },
+    {
+      "id": "ms-020",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the purpose of leaderboards and side-by-side comparisons in the Foundry model catalog?",
+      "options": [
+        { "key": "A", "text": "To help you evaluate and compare models on quality, safety, cost, and performance before choosing" },
+        { "key": "B", "text": "To automatically write your application code" },
+        { "key": "C", "text": "To delete unused models" },
+        { "key": "D", "text": "To set your billing limit" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Leaderboards and comparisons help you evaluate models across quality, safety, throughput, cost, and compliance to pick the right one.",
+        "distractors": {
+          "B": "They do not write your app.",
+          "C": "They do not delete models.",
+          "D": "They are not billing controls."
+        }
+      },
+      "tags": ["model-selection", "evaluation"]
+    },
+    {
+      "id": "ms-021",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What does the 'temperature' parameter control when generating text?",
+      "options": [
+        { "key": "A", "text": "How creative vs deterministic the output is (higher = more varied)" },
+        { "key": "B", "text": "The maximum length of the response" },
+        { "key": "C", "text": "The number of tokens per minute allowed" },
+        { "key": "D", "text": "Which language the model replies in" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Temperature controls randomness/creativity: higher = more varied/creative, lower = more focused/deterministic.",
+        "distractors": {
+          "B": "Length is controlled by max output tokens.",
+          "C": "Throughput is controlled by TPM.",
+          "D": "Temperature does not set the language."
+        }
+      },
+      "tags": ["configuration", "temperature", "definition"]
+    },
+    {
+      "id": "ms-022",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What does the 'max output tokens' parameter do?",
+      "options": [
+        { "key": "A", "text": "Caps how long the model's response can be" },
+        { "key": "B", "text": "Sets the creativity of the response" },
+        { "key": "C", "text": "Chooses the deployment region" },
+        { "key": "D", "text": "Selects the model family" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Max output tokens limits the length of the generated response, affecting token consumption and throttling.",
+        "distractors": {
+          "B": "Creativity is temperature.",
+          "C": "Region is a deployment setting, not max tokens.",
+          "D": "Model choice is separate."
+        }
+      },
+      "tags": ["configuration", "max-tokens", "definition"]
+    },
+    {
+      "id": "ms-023",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the role of the system prompt when deploying and using a model?",
+      "options": [
+        { "key": "A", "text": "It is the developer-set instruction layer defining behaviour, tone, and constraints" },
+        { "key": "B", "text": "It is the end-user's specific question" },
+        { "key": "C", "text": "It sets the tokens-per-minute limit" },
+        { "key": "D", "text": "It is the model's billing account" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The system prompt is the developer-controlled instruction setting behaviour, tone, role, and guardrails.",
+        "distractors": {
+          "B": "That describes the user prompt.",
+          "C": "That is TPM.",
+          "D": "It is not billing."
+        }
+      },
+      "tags": ["configuration", "system-prompt"]
+    },
+    {
+      "id": "ms-024",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What does the TPM (tokens per minute) rate limit control on a deployment?",
+      "options": [
+        { "key": "A", "text": "The throughput/capacity allocated to the deployment" },
+        { "key": "B", "text": "The creativity of responses" },
+        { "key": "C", "text": "The model's training cutoff date" },
+        { "key": "D", "text": "The number of users allowed to sign in" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "TPM controls throughput and rate-limit boundaries: higher TPM = more capacity, lower TPM = slower.",
+        "distractors": {
+          "B": "Creativity is temperature.",
+          "C": "TPM is unrelated to training date.",
+          "D": "TPM is not a user-count limit."
+        }
+      },
+      "tags": ["configuration", "tpm", "definition"]
+    },
+    {
+      "id": "ms-025",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Your application starts getting throttled as it approaches its TPM limit. Which mitigation is appropriate?",
+      "options": [
+        { "key": "A", "text": "Reduce max_tokens and/or the number of concurrent requests (or raise TPM)" },
+        { "key": "B", "text": "Increase the temperature" },
+        { "key": "C", "text": "Switch the response language" },
+        { "key": "D", "text": "Delete the system prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Throttling near the TPM limit is mitigated by reducing max_tokens or concurrency, or by allocating a higher TPM.",
+        "distractors": {
+          "B": "Temperature does not affect rate limits.",
+          "C": "Language is irrelevant to throttling.",
+          "D": "Removing the system prompt does not fix throttling and harms behaviour."
+        }
+      },
+      "tags": ["configuration", "throttling", "tpm"]
+    },
+    {
+      "id": "ms-026",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which of the following are the deployment type options described for a model deployment?",
+      "options": [
+        { "key": "A", "text": "Standard, global batch, regional provisioned throughput" },
+        { "key": "B", "text": "Free, basic, premium" },
+        { "key": "C", "text": "Hot, warm, cold" },
+        { "key": "D", "text": "Red, green, blue" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The deployment type options are standard, global batch, and regional provisioned throughput.",
+        "distractors": {
+          "B": "These are not the Foundry deployment types.",
+          "C": "These are storage tiers, not model deployment types.",
+          "D": "These describe a release strategy, not deployment types."
+        }
+      },
+      "tags": ["configuration", "deployment", "definition"]
+    },
+    {
+      "id": "ms-027",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "You have a large set of prompts that do NOT need real-time responses and want cost-efficient bulk processing. Which deployment type best fits?",
+      "options": [
+        { "key": "A", "text": "Global batch" },
+        { "key": "B", "text": "Regional provisioned throughput for lowest latency" },
+        { "key": "C", "text": "Standard real-time only" },
+        { "key": "D", "text": "No deployment is needed" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Batch (global batch) processing suits high-volume, non-real-time workloads cost-efficiently.",
+        "distractors": {
+          "B": "Provisioned throughput targets predictable low-latency real-time needs, not cheap bulk jobs.",
+          "C": "Standard real-time is for interactive use.",
+          "D": "A deployment is still required to call the model."
+        }
+      },
+      "tags": ["configuration", "deployment"]
+    },
+    {
+      "id": "ms-028",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Why might you pin a specific model version when deploying?",
+      "options": [
+        { "key": "A", "text": "To lock in consistent behaviour and avoid unexpected changes from version updates" },
+        { "key": "B", "text": "To increase the temperature automatically" },
+        { "key": "C", "text": "To remove the need for an endpoint" },
+        { "key": "D", "text": "To disable monitoring" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Locking a model version keeps behaviour consistent and avoids surprises when newer versions ship.",
+        "distractors": {
+          "B": "Version pinning does not change temperature.",
+          "C": "An endpoint is still created.",
+          "D": "It does not disable monitoring."
+        }
+      },
+      "tags": ["configuration", "deployment"]
+    },
+    {
+      "id": "ms-029",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What does deploying a model in Foundry primarily provide?",
+      "options": [
+        { "key": "A", "text": "A stable API endpoint that makes the model available as a service" },
+        { "key": "B", "text": "A printed certificate" },
+        { "key": "C", "text": "A new physical server you must maintain" },
+        { "key": "D", "text": "An automatic public website" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Deployment exposes the model as a service through a stable API endpoint (with compute allocated, config locked, monitoring active).",
+        "distractors": {
+          "B": "No certificate is produced.",
+          "C": "You do not manage physical servers.",
+          "D": "It does not auto-create a website."
+        }
+      },
+      "tags": ["configuration", "deployment"]
+    },
+    {
+      "id": "ms-030",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You want consistent, focused, repeatable answers from a model (e.g., for extraction). How should you set temperature?",
+      "options": [
+        { "key": "A", "text": "Lower temperature" },
+        { "key": "B", "text": "Higher temperature" },
+        { "key": "C", "text": "Temperature has no effect on consistency" },
+        { "key": "D", "text": "Set max tokens to zero" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Lower temperature yields more deterministic, focused, repeatable output.",
+        "distractors": {
+          "B": "Higher temperature increases variability.",
+          "C": "Temperature directly affects variability/consistency.",
+          "D": "Zero max tokens would return no content."
+        }
+      },
+      "tags": ["configuration", "temperature"]
+    },
+    {
+      "id": "ms-031",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Setting a very low 'max output tokens' value will most likely cause what?",
+      "options": [
+        { "key": "A", "text": "Responses may be cut off / truncated" },
+        { "key": "B", "text": "The model becomes more creative" },
+        { "key": "C", "text": "The model changes language" },
+        { "key": "D", "text": "The TPM limit increases" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A low max output tokens caps length and can truncate responses.",
+        "distractors": {
+          "B": "Creativity is temperature.",
+          "C": "It does not change language.",
+          "D": "It does not raise TPM."
+        }
+      },
+      "tags": ["configuration", "max-tokens"]
+    },
+    {
+      "id": "ms-032",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In Foundry, model evaluators (e.g., safety evaluators, groundedness, relevance) do what?",
+      "options": [
+        { "key": "A", "text": "Detect and score issues, but do not actively resolve them" },
+        { "key": "B", "text": "Automatically fix all harmful outputs" },
+        { "key": "C", "text": "Deploy the model for you" },
+        { "key": "D", "text": "Set your billing limits" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Evaluators detect and score issues (quality, safety, groundedness) but do not resolve them automatically.",
+        "distractors": {
+          "B": "They flag, they do not auto-fix.",
+          "C": "They do not perform deployment.",
+          "D": "They are not billing tools."
+        }
+      },
+      "tags": ["evaluation", "safety"]
+    },
+    {
+      "id": "ms-033",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which evaluation metric set is AI-assisted rather than a classic NLP metric?",
+      "options": [
+        { "key": "A", "text": "Groundedness, relevance, coherence/fluency, GPT similarity" },
+        { "key": "B", "text": "Accuracy, precision, recall, F1" },
+        { "key": "C", "text": "Temperature, max tokens, TPM" },
+        { "key": "D", "text": "Standard, batch, provisioned" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Groundedness, relevance, coherence/fluency, and GPT similarity are AI-assisted metrics; accuracy/precision/recall/F1 are classic NLP metrics.",
+        "distractors": {
+          "B": "Those are NLP metrics, not AI-assisted ones.",
+          "C": "Those are configuration parameters.",
+          "D": "Those are deployment types."
+        }
+      },
+      "tags": ["evaluation"]
+    },
+    {
+      "id": "ms-034",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "You need a model for general customer-support chat with reasonable cost and broad availability. Which is a suitable choice?",
+      "options": [
+        { "key": "A", "text": "A chat-optimised model such as GPT-4.1" },
+        { "key": "B", "text": "text-embedding-3-small" },
+        { "key": "C", "text": "GPT-Image-1" },
+        { "key": "D", "text": "Sora" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "General chat is served by chat-optimised models like GPT-4.1.",
+        "distractors": {
+          "B": "Embeddings models output vectors, not chat.",
+          "C": "Image generation is unrelated.",
+          "D": "Sora is video generation."
+        }
+      },
+      "tags": ["model-selection", "chat"]
+    },
+    {
+      "id": "ms-035",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO actions help reduce throttling against a deployment's TPM limit? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Lower the max_tokens per request" },
+        { "key": "B", "text": "Reduce the number of concurrent requests" },
+        { "key": "C", "text": "Increase the temperature" },
+        { "key": "D", "text": "Change the system prompt wording" },
+        { "key": "E", "text": "Switch to an image-generation model" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Lowering max_tokens (A) and reducing concurrency (B) both ease pressure on the TPM limit.",
+        "distractors": {
+          "C": "Temperature does not affect token throughput limits.",
+          "D": "Prompt wording does not address rate limits.",
+          "E": "Changing model type does not address the TPM throttling issue."
+        }
+      },
+      "tags": ["configuration", "throttling", "multi-select"]
+    },
+    {
+      "id": "ms-036",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which THREE are parameters you configure when deploying or calling a model? (Choose three.)",
+      "options": [
+        { "key": "A", "text": "Temperature" },
+        { "key": "B", "text": "Max output tokens" },
+        { "key": "C", "text": "TPM rate limit" },
+        { "key": "D", "text": "Cosine similarity" },
+        { "key": "E", "text": "Positional encoding" }
+      ],
+      "correct": ["A", "B", "C"],
+      "explanation": {
+        "correct": "Temperature, max output tokens, and TPM rate limit are configurable parameters.",
+        "distractors": {
+          "D": "Cosine similarity is a measure of embedding similarity, not a config parameter.",
+          "E": "Positional encoding is an internal transformer mechanism, not a deployment setting."
+        }
+      },
+      "tags": ["configuration", "multi-select"]
+    },
+    {
+      "id": "ms-037",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO models would be appropriate when you must process an image together with a text question in one request? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "GPT-4.1 (vision-capable)" },
+        { "key": "B", "text": "Phi-4-multimodal" },
+        { "key": "C", "text": "text-embedding-3-small" },
+        { "key": "D", "text": "A speech-to-text model" },
+        { "key": "E", "text": "Sora" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Vision-capable GPT-4.1 and Phi-4-multimodal can handle image + text inputs.",
+        "distractors": {
+          "C": "Embeddings models produce vectors only.",
+          "D": "STT handles audio.",
+          "E": "Sora generates video."
+        }
+      },
+      "tags": ["model-selection", "multimodal", "multi-select"]
+    },
+    {
+      "id": "ms-038",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A startup is choosing models for three features. (1) A semantic search over their knowledge base. (2) A low-latency, high-volume customer chat available without special registration. (3) A feature that creates promotional images from text descriptions.",
+      "subQuestions": [
+        {
+          "id": "ms-038-a",
+          "type": "single",
+          "stem": "Feature (1) semantic search — which model type?",
+          "options": [
+            { "key": "A", "text": "An embeddings model (text-embedding-3-small)" },
+            { "key": "B", "text": "A video-generation model" },
+            { "key": "C", "text": "A speech synthesis model" },
+            { "key": "D", "text": "An OCR model" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Semantic search needs vectors, produced by an embeddings model.",
+            "distractors": {
+              "B": "Video generation is irrelevant.",
+              "C": "Speech synthesis makes audio.",
+              "D": "OCR reads text in images."
+            }
+          }
+        },
+        {
+          "id": "ms-038-b",
+          "type": "single",
+          "stem": "Feature (2) low-latency, high-volume chat available to all — which model?",
+          "options": [
+            { "key": "A", "text": "GPT-4.1" },
+            { "key": "B", "text": "A GPT-5 model requiring registration" },
+            { "key": "C", "text": "text-embedding-3-small" },
+            { "key": "D", "text": "GPT-Image-1" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "GPT-4.1 is available to all and optimised for real-time, high-volume chat.",
+            "distractors": {
+              "B": "GPT-5 family requires registration.",
+              "C": "Embeddings models are not for chat.",
+              "D": "GPT-Image-1 is for images."
+            }
+          }
+        },
+        {
+          "id": "ms-038-c",
+          "type": "single",
+          "stem": "Feature (3) create promotional images from text — which model?",
+          "options": [
+            { "key": "A", "text": "An image-generation model (GPT-Image-1)" },
+            { "key": "B", "text": "text-embedding-3-small" },
+            { "key": "C", "text": "A speech-to-text model" },
+            { "key": "D", "text": "A chat-only model" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Creating images from text needs an image-generation model such as GPT-Image-1.",
+            "distractors": {
+              "B": "Embeddings models output vectors.",
+              "C": "STT transcribes audio.",
+              "D": "A chat-only model produces text, not images."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "model-selection"]
+    },
+    {
+      "id": "ms-039",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A team is configuring a chat deployment. They notice (1) responses are too random and inconsistent for their structured-extraction use; (2) responses are being cut off mid-sentence; (3) under load, requests start returning rate-limit errors.",
+      "subQuestions": [
+        {
+          "id": "ms-039-a",
+          "type": "single",
+          "stem": "To fix (1) too random/inconsistent output, what should they change?",
+          "options": [
+            { "key": "A", "text": "Lower the temperature" },
+            { "key": "B", "text": "Raise the temperature" },
+            { "key": "C", "text": "Increase max output tokens" },
+            { "key": "D", "text": "Increase the TPM" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Lowering temperature makes output more deterministic and consistent.",
+            "distractors": {
+              "B": "Raising temperature increases randomness.",
+              "C": "Max tokens affects length, not randomness.",
+              "D": "TPM affects throughput, not randomness."
+            }
+          }
+        },
+        {
+          "id": "ms-039-b",
+          "type": "single",
+          "stem": "To fix (2) responses cut off mid-sentence, what should they change?",
+          "options": [
+            { "key": "A", "text": "Increase max output tokens" },
+            { "key": "B", "text": "Lower the temperature" },
+            { "key": "C", "text": "Remove the system prompt" },
+            { "key": "D", "text": "Switch to an embeddings model" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Truncated responses indicate the max output tokens cap is too low; raise it.",
+            "distractors": {
+              "B": "Temperature affects randomness, not length.",
+              "C": "Removing the system prompt harms behaviour and does not fix length.",
+              "D": "Embeddings models do not produce chat responses."
+            }
+          }
+        },
+        {
+          "id": "ms-039-c",
+          "type": "single",
+          "stem": "To address (3) rate-limit errors under load, what is appropriate?",
+          "options": [
+            { "key": "A", "text": "Increase TPM, or reduce max_tokens/concurrency" },
+            { "key": "B", "text": "Raise the temperature" },
+            { "key": "C", "text": "Pin an older model version" },
+            { "key": "D", "text": "Change the response language" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Rate-limit/throttling issues are addressed by raising TPM or reducing token usage/concurrency.",
+            "distractors": {
+              "B": "Temperature is unrelated to rate limits.",
+              "C": "Version pinning does not change throughput.",
+              "D": "Language is irrelevant."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "configuration", "tpm"]
+    },
+    {
+      "id": "ms-040",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which statement best captures the difference between using a raw model versus an agent?",
+      "options": [
+        { "key": "A", "text": "A raw model does pure inference (prompt in, output out); an agent packages a model with instructions, tools, and knowledge for task-oriented workflows" },
+        { "key": "B", "text": "A raw model can use tools automatically; an agent cannot" },
+        { "key": "C", "text": "Agents cannot use any model" },
+        { "key": "D", "text": "There is no difference" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Raw models perform inference; agents wrap a model with instructions, tools, and knowledge to act in workflows.",
+        "distractors": {
+          "B": "It is the agent that adds tool use, not the raw model.",
+          "C": "Agents are built on a model.",
+          "D": "There is a clear difference."
+        }
+      },
+      "tags": ["model-selection", "agents"]
+    }
+  ]
+}

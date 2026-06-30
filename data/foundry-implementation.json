@@ -1,0 +1,1252 @@
+{
+  "section": "foundry-implementation",
+  "title": "Foundry Implementation: Text, Speech, Vision & Information Extraction",
+  "blueprintRef": "Implement AI solutions using Microsoft Foundry (55-60%) > Text/Speech, Computer Vision/Image generation, Information extraction",
+  "source": "Module 3, 4, 5, 6",
+  "questions": [
+    {
+      "id": "fi-001",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Foundry offers two approaches to text analysis. What are they?",
+      "options": [
+        { "key": "A", "text": "General-purpose AI models (prompt-driven) and Azure Language in Foundry Tools (deterministic analysers)" },
+        { "key": "B", "text": "Speech-to-text and text-to-speech" },
+        { "key": "C", "text": "Image generation and video generation" },
+        { "key": "D", "text": "Standard and batch deployments" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Text analysis can use flexible general-purpose models via prompts, or purpose-built Azure Language analysers for deterministic structured output.",
+        "distractors": {
+          "B": "Those are speech workloads.",
+          "C": "Those are vision workloads.",
+          "D": "Those are deployment types, not text-analysis approaches."
+        }
+      },
+      "tags": ["text-analysis", "approaches"]
+    },
+    {
+      "id": "fi-002",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "To analyse text with a general-purpose model in a Python client, which API call is used?",
+      "options": [
+        { "key": "A", "text": "client.responses.create() (OpenAI Responses API)" },
+        { "key": "B", "text": "client.detect_language()" },
+        { "key": "C", "text": "client.begin_analyze()" },
+        { "key": "D", "text": "speech_synthesizer.speak_text_async()" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "General-purpose text analysis uses the OpenAI Responses API via responses.create() with a natural-language prompt.",
+        "distractors": {
+          "B": "detect_language() is an Azure Language SDK method.",
+          "C": "begin_analyze() is Content Understanding.",
+          "D": "speak_text_async() is text-to-speech."
+        }
+      },
+      "tags": ["text-analysis", "responses-api"]
+    },
+    {
+      "id": "fi-003",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which client class does the Azure Language SDK use for structured text analysis?",
+      "options": [
+        { "key": "A", "text": "TextAnalyticsClient" },
+        { "key": "B", "text": "ContentUnderstandingClient" },
+        { "key": "C", "text": "SpeechRecognizer" },
+        { "key": "D", "text": "AIProjectClient" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Azure Language SDK uses TextAnalyticsClient (with an AzureKeyCredential).",
+        "distractors": {
+          "B": "ContentUnderstandingClient is for information extraction.",
+          "C": "SpeechRecognizer is for speech-to-text.",
+          "D": "AIProjectClient is for calling agents."
+        }
+      },
+      "tags": ["text-analysis", "azure-language", "sdk"]
+    },
+    {
+      "id": "fi-004",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which Azure Language SDK method identifies the language of input text and returns an ISO code and confidence score?",
+      "options": [
+        { "key": "A", "text": "detect_language()" },
+        { "key": "B", "text": "recognize_pii_entities()" },
+        { "key": "C", "text": "responses.create()" },
+        { "key": "D", "text": "begin_analyze()" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "detect_language() returns the primary language, its ISO 639-1 code, and a confidence score.",
+        "distractors": {
+          "B": "recognize_pii_entities() finds personal data.",
+          "C": "responses.create() is the general-purpose model call.",
+          "D": "begin_analyze() is Content Understanding."
+        }
+      },
+      "tags": ["text-analysis", "azure-language", "language-detection"]
+    },
+    {
+      "id": "fi-005",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A workflow must find and redact personal data such as names and phone numbers in text. Which Azure Language SDK method is appropriate?",
+      "options": [
+        { "key": "A", "text": "recognize_pii_entities() (returns redacted_text and entities)" },
+        { "key": "B", "text": "detect_language()" },
+        { "key": "C", "text": "speak_text_async()" },
+        { "key": "D", "text": "image_generation tool" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "recognize_pii_entities() detects PII and provides a redacted_text plus entity details with categories and confidence.",
+        "distractors": {
+          "B": "detect_language() identifies the language only.",
+          "C": "speak_text_async() is text-to-speech.",
+          "D": "Image generation is a vision capability."
+        }
+      },
+      "tags": ["text-analysis", "azure-language", "pii"]
+    },
+    {
+      "id": "fi-006",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A compliance pipeline needs identical, repeatable results for the same input every time. Which text-analysis approach should you choose?",
+      "options": [
+        { "key": "A", "text": "Azure Language (deterministic, structured output)" },
+        { "key": "B", "text": "A general-purpose model (probabilistic output)" },
+        { "key": "C", "text": "Image generation" },
+        { "key": "D", "text": "Video generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Azure Language gives deterministic, consistent structured output ideal for automated/compliance pipelines.",
+        "distractors": {
+          "B": "General-purpose models are probabilistic; identical calls may vary.",
+          "C": "Image generation is unrelated to text.",
+          "D": "Video generation is unrelated to text."
+        }
+      },
+      "tags": ["text-analysis", "approaches"]
+    },
+    {
+      "id": "fi-007",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "When is a general-purpose model preferable over Azure Language for text analysis?",
+      "options": [
+        { "key": "A", "text": "For flexible exploration and compound tasks driven by natural-language prompts" },
+        { "key": "B", "text": "When you need identical output on every call" },
+        { "key": "C", "text": "When you must guarantee deterministic structured fields" },
+        { "key": "D", "text": "When you only ever need PII redaction" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "General-purpose models shine for flexible, prompt-driven, compound text tasks.",
+        "distractors": {
+          "B": "Determinism favours Azure Language.",
+          "C": "Deterministic structured fields favour Azure Language.",
+          "D": "Fixed single-task work favours the purpose-built analyser."
+        }
+      },
+      "tags": ["text-analysis", "approaches"]
+    },
+    {
+      "id": "fi-008",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "How can an agent combine its reasoning with deterministic Azure Language analysis without writing custom REST/auth code?",
+      "options": [
+        { "key": "A", "text": "Connect the Azure Language MCP server as a tool" },
+        { "key": "B", "text": "Raise the temperature" },
+        { "key": "C", "text": "Use a video-generation model" },
+        { "key": "D", "text": "Increase the TPM" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Azure Language MCP server exposes Language capabilities as tools an agent can discover and call without custom integration code.",
+        "distractors": {
+          "B": "Temperature is unrelated.",
+          "C": "Video generation is unrelated.",
+          "D": "TPM is a throughput setting."
+        }
+      },
+      "tags": ["text-analysis", "mcp", "agents"]
+    },
+    {
+      "id": "fi-009",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which Python package provides the Azure Speech SDK for speech-to-text and text-to-speech?",
+      "options": [
+        { "key": "A", "text": "azure-cognitiveservices-speech" },
+        { "key": "B", "text": "azure-ai-textanalytics" },
+        { "key": "C", "text": "azure-ai-contentunderstanding" },
+        { "key": "D", "text": "openai" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Azure Speech SDK is provided by azure-cognitiveservices-speech.",
+        "distractors": {
+          "B": "That is the Azure Language SDK.",
+          "C": "That is Content Understanding.",
+          "D": "openai is the Responses API client."
+        }
+      },
+      "tags": ["speech", "sdk"]
+    },
+    {
+      "id": "fi-010",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which combination of objects is used to perform speech-to-text with the Azure Speech SDK?",
+      "options": [
+        { "key": "A", "text": "SpeechConfig + AudioConfig + SpeechRecognizer" },
+        { "key": "B", "text": "SpeechConfig + AudioOutputConfig + SpeechSynthesizer" },
+        { "key": "C", "text": "TextAnalyticsClient + AzureKeyCredential" },
+        { "key": "D", "text": "ContentUnderstandingClient + begin_analyze" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "STT uses SpeechConfig (auth/endpoint), AudioConfig (input source), and SpeechRecognizer.",
+        "distractors": {
+          "B": "That combination (AudioOutputConfig + SpeechSynthesizer) is for text-to-speech.",
+          "C": "That is the Azure Language SDK.",
+          "D": "That is Content Understanding."
+        }
+      },
+      "tags": ["speech", "stt", "sdk"]
+    },
+    {
+      "id": "fi-011",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "In speech recognition, what do the acoustic model and the language model do respectively?",
+      "options": [
+        { "key": "A", "text": "Acoustic model converts audio to phonemes; language model maps phonemes to words" },
+        { "key": "B", "text": "Acoustic model maps phonemes to words; language model converts audio to phonemes" },
+        { "key": "C", "text": "Both convert text to audio" },
+        { "key": "D", "text": "Both generate images" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The acoustic model turns audio into phonemes; the language model maps phonemes to the most likely words.",
+        "distractors": {
+          "B": "Roles reversed.",
+          "C": "That is text-to-speech.",
+          "D": "Neither generates images."
+        }
+      },
+      "tags": ["speech", "stt"]
+    },
+    {
+      "id": "fi-012",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "You need to transcribe a large set of pre-recorded audio files referenced by SAS URI, where immediate results are not required. Which option fits?",
+      "options": [
+        { "key": "A", "text": "Batch transcription (asynchronous)" },
+        { "key": "B", "text": "Real-time continuous recognition from a microphone" },
+        { "key": "C", "text": "Text-to-speech synthesis" },
+        { "key": "D", "text": "Image generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Batch transcription points to audio files via SAS URI and runs asynchronously, suited to non-real-time bulk jobs.",
+        "distractors": {
+          "B": "Real-time recognition is for live/streamed audio.",
+          "C": "TTS produces audio, not transcripts.",
+          "D": "Image generation is unrelated."
+        }
+      },
+      "tags": ["speech", "stt", "batch"]
+    },
+    {
+      "id": "fi-013",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which objects are used to perform text-to-speech with the Azure Speech SDK?",
+      "options": [
+        { "key": "A", "text": "SpeechConfig + AudioOutputConfig + SpeechSynthesizer" },
+        { "key": "B", "text": "SpeechConfig + AudioConfig + SpeechRecognizer" },
+        { "key": "C", "text": "ContentUnderstandingClient + poller" },
+        { "key": "D", "text": "AIProjectClient + agent_reference" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "TTS uses SpeechConfig, AudioOutputConfig (speaker or file), and SpeechSynthesizer (e.g., speak_text_async).",
+        "distractors": {
+          "B": "That combination is for speech-to-text.",
+          "C": "That is Content Understanding.",
+          "D": "That is agent invocation."
+        }
+      },
+      "tags": ["speech", "tts", "sdk"]
+    },
+    {
+      "id": "fi-014",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What advantage do neural voices provide in text-to-speech?",
+      "options": [
+        { "key": "A", "text": "More natural intonation and human-like speech" },
+        { "key": "B", "text": "They eliminate the need for any text input" },
+        { "key": "C", "text": "They convert audio to text" },
+        { "key": "D", "text": "They generate images" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Neural voices overcome older intonation limitations to sound more natural and human-like.",
+        "distractors": {
+          "B": "TTS still needs text input.",
+          "C": "That is speech-to-text.",
+          "D": "Neural voices do not generate images."
+        }
+      },
+      "tags": ["speech", "tts", "neural-voices"]
+    },
+    {
+      "id": "fi-015",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which Azure service combines speech-to-text, AI reasoning, and text-to-speech into a single managed conversational API?",
+      "options": [
+        { "key": "A", "text": "Azure Voice Live (azure-ai-voicelive)" },
+        { "key": "B", "text": "Azure Content Understanding" },
+        { "key": "C", "text": "Azure Language" },
+        { "key": "D", "text": "GPT-Image-1" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Voice Live unifies STT + reasoning + TTS into one managed API (package azure-ai-voicelive).",
+        "distractors": {
+          "B": "Content Understanding is for information extraction.",
+          "C": "Azure Language is text analysis.",
+          "D": "GPT-Image-1 generates images."
+        }
+      },
+      "tags": ["speech", "voice-live"]
+    },
+    {
+      "id": "fi-016",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Enabling 'Voice mode' on an agent in the Foundry portal does what?",
+      "options": [
+        { "key": "A", "text": "Encapsulates Azure Speech Voice Live in the agent so less client speech code is needed" },
+        { "key": "B", "text": "Deletes the agent's tools" },
+        { "key": "C", "text": "Converts the agent into an image generator" },
+        { "key": "D", "text": "Disables the system prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Voice mode wraps Voice Live into the agent definition, encapsulating speech config and reducing client-side code.",
+        "distractors": {
+          "B": "It does not remove tools.",
+          "C": "It does not change the agent into an image generator.",
+          "D": "It does not disable the system prompt."
+        }
+      },
+      "tags": ["speech", "voice-live", "agents"]
+    },
+    {
+      "id": "fi-017",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which type of model lets you send an image and a text question together in one request and get a natural-language answer?",
+      "options": [
+        { "key": "A", "text": "A vision-enabled multimodal model (e.g., GPT-4.1)" },
+        { "key": "B", "text": "An embeddings model" },
+        { "key": "C", "text": "A speech synthesis model" },
+        { "key": "D", "text": "A batch deployment" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Vision-enabled multimodal models process image + text together and respond in natural language.",
+        "distractors": {
+          "B": "Embeddings models output vectors.",
+          "C": "Speech synthesis produces audio.",
+          "D": "A batch deployment is a deployment type, not a model capability."
+        }
+      },
+      "tags": ["computer-vision", "multimodal"]
+    },
+    {
+      "id": "fi-018",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "In the Responses API, which content type is used to pass an image to a multimodal model?",
+      "options": [
+        { "key": "A", "text": "input_image" },
+        { "key": "B", "text": "image_generation" },
+        { "key": "C", "text": "speak_text_async" },
+        { "key": "D", "text": "detect_language" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Pass an image via a content item of type input_image (alongside input_text) in the Responses API.",
+        "distractors": {
+          "B": "image_generation is the tool type used to CREATE images.",
+          "C": "speak_text_async is a TTS call.",
+          "D": "detect_language is an Azure Language method."
+        }
+      },
+      "tags": ["computer-vision", "multimodal", "responses-api"]
+    },
+    {
+      "id": "fi-019",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "How can an image be supplied to a multimodal model?",
+      "options": [
+        { "key": "A", "text": "As a URL or as base64-encoded image data" },
+        { "key": "B", "text": "Only as a printed photograph" },
+        { "key": "C", "text": "Only by emailing it to Azure" },
+        { "key": "D", "text": "Only as a .docx file" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Images can be provided as URLs or base64-encoded data within the request.",
+        "distractors": {
+          "B": "Printed photos are not an API input.",
+          "C": "Email is not an input mechanism.",
+          "D": "It is not restricted to .docx."
+        }
+      },
+      "tags": ["computer-vision", "multimodal"]
+    },
+    {
+      "id": "fi-020",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which models are suitable for image analysis (multimodal) in Foundry?",
+      "options": [
+        { "key": "A", "text": "GPT-4.1 family and GPT-5.x series (vision-enabled)" },
+        { "key": "B", "text": "text-embedding-3-small only" },
+        { "key": "C", "text": "Sora only" },
+        { "key": "D", "text": "prebuilt-invoice only" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Vision-enabled GPT-4.1 and GPT-5.x models perform image analysis with natural-language responses.",
+        "distractors": {
+          "B": "Embeddings models do not analyse images conversationally.",
+          "C": "Sora is for video generation.",
+          "D": "prebuilt-invoice is a Content Understanding analyser."
+        }
+      },
+      "tags": ["computer-vision", "multimodal"]
+    },
+    {
+      "id": "fi-021",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which parameter triggers image generation when using the OpenAI Python SDK against Foundry?",
+      "options": [
+        { "key": "A", "text": "tools=[{\"type\": \"image_generation\"}]" },
+        { "key": "B", "text": "content=[{\"type\": \"input_image\"}]" },
+        { "key": "C", "text": "analyzer_id=\"prebuilt-invoice\"" },
+        { "key": "D", "text": "use_default_microphone=True" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Image generation is invoked by passing tools=[{\"type\": \"image_generation\"}]; the model calls the image-generation tool.",
+        "distractors": {
+          "B": "input_image is for sending an image INTO a multimodal model, not generating one.",
+          "C": "analyzer_id is a Content Understanding parameter.",
+          "D": "That is a speech input setting."
+        }
+      },
+      "tags": ["computer-vision", "image-generation", "responses-api"]
+    },
+    {
+      "id": "fi-022",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "After calling image generation, how is the resulting image returned and handled?",
+      "options": [
+        { "key": "A", "text": "As base64 data that you decode and write to a file" },
+        { "key": "B", "text": "As a printed page mailed to you" },
+        { "key": "C", "text": "As a transcript of text" },
+        { "key": "D", "text": "As an ISO language code" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The generated image comes back as base64, which you decode (base64.b64decode) and write to a file.",
+        "distractors": {
+          "B": "Nothing is mailed.",
+          "C": "A transcript is a speech output.",
+          "D": "An ISO code is a language-detection result."
+        }
+      },
+      "tags": ["computer-vision", "image-generation"]
+    },
+    {
+      "id": "fi-023",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "For high-volume, cost-efficient, lower-latency image generation experiments, which model is most appropriate?",
+      "options": [
+        { "key": "A", "text": "GPT-Image-1-Mini" },
+        { "key": "B", "text": "Sora 2" },
+        { "key": "C", "text": "text-embedding-3-small" },
+        { "key": "D", "text": "prebuilt-audioSearch" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "GPT-Image-1-Mini is the lightweight, cost-efficient, lower-latency image-generation option suited to high volume and experimentation.",
+        "distractors": {
+          "B": "Sora 2 is for video generation.",
+          "C": "Embeddings models output vectors.",
+          "D": "prebuilt-audioSearch is an extraction analyser."
+        }
+      },
+      "tags": ["computer-vision", "image-generation", "model-selection"]
+    },
+    {
+      "id": "fi-024",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which model family provides native video generation in Foundry?",
+      "options": [
+        { "key": "A", "text": "Sora (Sora 1 / Sora 2)" },
+        { "key": "B", "text": "GPT-Image-1" },
+        { "key": "C", "text": "TextAnalyticsClient" },
+        { "key": "D", "text": "Phi-4-multimodal" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Sora 1 and Sora 2 are the native video-generation models in Foundry.",
+        "distractors": {
+          "B": "GPT-Image-1 generates still images.",
+          "C": "That is a text-analysis client.",
+          "D": "Phi-4-multimodal is for image+text analysis, not video generation."
+        }
+      },
+      "tags": ["computer-vision", "video-generation"]
+    },
+    {
+      "id": "fi-025",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "What is the workflow for generating a video with Sora via the REST API?",
+      "options": [
+        { "key": "A", "text": "Create the job (POST), poll the status (GET) until completed, then download the MP4" },
+        { "key": "B", "text": "A single synchronous call returns the finished video instantly" },
+        { "key": "C", "text": "begin_analyze() then poller.result()" },
+        { "key": "D", "text": "detect_language() then redact" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Video generation is asynchronous: POST to create a job, GET to poll until status is completed, then download the MP4.",
+        "distractors": {
+          "B": "It is not instant/synchronous; it is a multi-minute async job.",
+          "C": "That is the Content Understanding pattern.",
+          "D": "Those are text-analysis steps."
+        }
+      },
+      "tags": ["computer-vision", "video-generation", "async"]
+    },
+    {
+      "id": "fi-026",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "How is Sora video generation accessed in the course example?",
+      "options": [
+        { "key": "A", "text": "Directly via the REST API (e.g., /openai/v1/videos), no SDK required" },
+        { "key": "B", "text": "Only through the Speech SDK" },
+        { "key": "C", "text": "Only through TextAnalyticsClient" },
+        { "key": "D", "text": "Only through the image_generation tool" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The course uses the REST API directly (e.g., POST/GET on /openai/v1/videos) with a create-poll-download pattern, no SDK.",
+        "distractors": {
+          "B": "The Speech SDK is for audio.",
+          "C": "TextAnalyticsClient is for text.",
+          "D": "image_generation creates still images, not video."
+        }
+      },
+      "tags": ["computer-vision", "video-generation", "rest"]
+    },
+    {
+      "id": "fi-027",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which capability does Sora 2 add beyond Sora 1?",
+      "options": [
+        { "key": "A", "text": "Video-to-video (remix) and audio generation, with improved realism" },
+        { "key": "B", "text": "It only supports text analysis" },
+        { "key": "C", "text": "It removes all Responsible AI restrictions" },
+        { "key": "D", "text": "It only generates still images" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Sora 2 adds video-to-video remixing and audio generation with improved realism and targeted edits.",
+        "distractors": {
+          "B": "Sora is a video model, not a text analyser.",
+          "C": "Both Sora models keep Responsible AI restrictions.",
+          "D": "Sora generates video, not just still images."
+        }
+      },
+      "tags": ["computer-vision", "video-generation"]
+    },
+    {
+      "id": "fi-028",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Why is video generation implemented as an asynchronous job?",
+      "options": [
+        { "key": "A", "text": "It is resource-intensive and takes time (typically 1-5 minutes)" },
+        { "key": "B", "text": "Because video models cannot use prompts" },
+        { "key": "C", "text": "Because there is no compute available" },
+        { "key": "D", "text": "Because it returns ISO codes" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Video generation is compute-heavy and takes minutes, so it runs as an async job you poll.",
+        "distractors": {
+          "B": "Video models do use prompts.",
+          "C": "Compute is available; the work simply takes time.",
+          "D": "ISO codes are language-detection output."
+        }
+      },
+      "tags": ["computer-vision", "video-generation", "async"]
+    },
+    {
+      "id": "fi-029",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A support app must interpret a screenshot a user uploads and explain the error shown. Which capability is used?",
+      "options": [
+        { "key": "A", "text": "A multimodal model interpreting the image with a text prompt" },
+        { "key": "B", "text": "Image generation" },
+        { "key": "C", "text": "Text-to-speech" },
+        { "key": "D", "text": "Language detection" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Interpreting an uploaded screenshot and answering about it is a multimodal image-analysis task.",
+        "distractors": {
+          "B": "Image generation creates new images.",
+          "C": "TTS produces audio.",
+          "D": "Language detection identifies language of text."
+        }
+      },
+      "tags": ["computer-vision", "multimodal", "scenario"]
+    },
+    {
+      "id": "fi-030",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An app must accept a spoken question plus an image and respond. Which approach matches the course's multimodal pattern?",
+      "options": [
+        { "key": "A", "text": "Use a deployed multimodal model that accepts image (and audio/text) inputs and responds" },
+        { "key": "B", "text": "Use prebuilt-invoice to read the audio" },
+        { "key": "C", "text": "Use detect_language on the image" },
+        { "key": "D", "text": "Use image_generation to answer the question" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A deployed multimodal model can take multimodal inputs (image plus text/audio) and produce a response.",
+        "distractors": {
+          "B": "prebuilt-invoice extracts invoice fields, not audio answers.",
+          "C": "detect_language works on text, not images.",
+          "D": "image_generation creates images, it does not answer questions."
+        }
+      },
+      "tags": ["computer-vision", "multimodal", "speech"]
+    },
+    {
+      "id": "fi-031",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is Azure Content Understanding used for?",
+      "options": [
+        { "key": "A", "text": "Turning unstructured documents, audio, and video into structured data (JSON)" },
+        { "key": "B", "text": "Generating new images from prompts" },
+        { "key": "C", "text": "Converting text to speech" },
+        { "key": "D", "text": "Routing network traffic" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Content Understanding extracts structured data from unstructured documents, audio, and video using OCR, speech, NLU, and multimodal AI.",
+        "distractors": {
+          "B": "That is image generation.",
+          "C": "That is text-to-speech.",
+          "D": "That is networking, not AI extraction."
+        }
+      },
+      "tags": ["information-extraction", "content-understanding"]
+    },
+    {
+      "id": "fi-032",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In Content Understanding, what does a 'schema' define?",
+      "options": [
+        { "key": "A", "text": "Which fields/entities to extract and how to structure them (including nested fields)" },
+        { "key": "B", "text": "The temperature of the model" },
+        { "key": "C", "text": "The neural voice to use" },
+        { "key": "D", "text": "The TPM rate limit" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A schema defines what fields to extract and how to structure the output, supporting structured and nested fields.",
+        "distractors": {
+          "B": "Temperature is a generation parameter.",
+          "C": "Voice selection is a speech setting.",
+          "D": "TPM is a throughput setting."
+        }
+      },
+      "tags": ["information-extraction", "schema"]
+    },
+    {
+      "id": "fi-033",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Why is schema-based extraction said to go 'beyond basic OCR'?",
+      "options": [
+        { "key": "A", "text": "It applies the schema semantically, mapping values even when labels differ or are missing (e.g., 'Invoice No.', 'Invoice #', or an unlabeled number all map to InvoiceNumber)" },
+        { "key": "B", "text": "It only copies the raw characters verbatim" },
+        { "key": "C", "text": "It converts the document to audio" },
+        { "key": "D", "text": "It cannot handle nested fields" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Schemas are applied semantically, mapping values to fields regardless of label variation or absence, unlike raw OCR.",
+        "distractors": {
+          "B": "Verbatim copying is what plain OCR does; schemas add meaning.",
+          "C": "It does not convert documents to audio.",
+          "D": "It supports structured and nested fields."
+        }
+      },
+      "tags": ["information-extraction", "schema"]
+    },
+    {
+      "id": "fi-034",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In Content Understanding, what is an 'analyzer'?",
+      "options": [
+        { "key": "A", "text": "The unit that takes input, applies the schema/AI analysis, and returns structured results consistently" },
+        { "key": "B", "text": "A neural voice" },
+        { "key": "C", "text": "An embeddings vector" },
+        { "key": "D", "text": "A deployment region" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "An analyzer encapsulates the schema and extraction logic, applying it consistently and producing predictable JSON.",
+        "distractors": {
+          "B": "A neural voice is a TTS concept.",
+          "C": "An embedding is a vector, not an analyzer.",
+          "D": "A region is a deployment location."
+        }
+      },
+      "tags": ["information-extraction", "analyzer"]
+    },
+    {
+      "id": "fi-035",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the difference between prebuilt and custom analyzers?",
+      "options": [
+        { "key": "A", "text": "Prebuilt analyzers cover common scenarios out of the box; custom analyzers are tailored to your specific schema" },
+        { "key": "B", "text": "Prebuilt analyzers must be trained from scratch; custom ones cannot be changed" },
+        { "key": "C", "text": "They are identical" },
+        { "key": "D", "text": "Custom analyzers only work on audio" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Prebuilt analyzers handle common cases immediately; custom analyzers use schemas tailored to your needs.",
+        "distractors": {
+          "B": "Prebuilt analyzers are ready to use, not trained from scratch.",
+          "C": "They differ in customisation.",
+          "D": "Custom analyzers are not limited to audio."
+        }
+      },
+      "tags": ["information-extraction", "analyzer"]
+    },
+    {
+      "id": "fi-036",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which prebuilt analyzer ID would you use to extract fields from invoices?",
+      "options": [
+        { "key": "A", "text": "prebuilt-invoice" },
+        { "key": "B", "text": "prebuilt-audioSearch" },
+        { "key": "C", "text": "prebuilt-videoSearch" },
+        { "key": "D", "text": "image_generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "prebuilt-invoice is the analyzer for invoice field extraction.",
+        "distractors": {
+          "B": "prebuilt-audioSearch is for audio.",
+          "C": "prebuilt-videoSearch is for video.",
+          "D": "image_generation is a vision tool, not an analyzer."
+        }
+      },
+      "tags": ["information-extraction", "analyzer"]
+    },
+    {
+      "id": "fi-037",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which client class does the Content Understanding Python SDK use?",
+      "options": [
+        { "key": "A", "text": "ContentUnderstandingClient" },
+        { "key": "B", "text": "TextAnalyticsClient" },
+        { "key": "C", "text": "SpeechSynthesizer" },
+        { "key": "D", "text": "OpenAI" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Content Understanding uses ContentUnderstandingClient (with an AzureKeyCredential).",
+        "distractors": {
+          "B": "TextAnalyticsClient is the Azure Language SDK.",
+          "C": "SpeechSynthesizer is text-to-speech.",
+          "D": "OpenAI is the Responses API client."
+        }
+      },
+      "tags": ["information-extraction", "sdk"]
+    },
+    {
+      "id": "fi-038",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "What is the call pattern for running a Content Understanding analysis in Python?",
+      "options": [
+        { "key": "A", "text": "begin_analyze(analyzer_id, inputs) returns a poller; poller.result() waits for completion" },
+        { "key": "B", "text": "responses.create() returns the final result instantly" },
+        { "key": "C", "text": "detect_language() then recognize_pii_entities()" },
+        { "key": "D", "text": "speak_text_async().get()" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Content Understanding is asynchronous: begin_analyze() returns a poller, and poller.result() waits for completion, then you read result.contents.",
+        "distractors": {
+          "B": "responses.create() is the general-purpose model call, not extraction.",
+          "C": "Those are Azure Language methods.",
+          "D": "That is text-to-speech."
+        }
+      },
+      "tags": ["information-extraction", "async", "sdk"]
+    },
+    {
+      "id": "fi-039",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What does a Content Understanding result typically contain?",
+      "options": [
+        { "key": "A", "text": "Structured JSON with fields, values, confidence scores, and a markdown representation" },
+        { "key": "B", "text": "Only a single boolean true/false" },
+        { "key": "C", "text": "Only an audio waveform" },
+        { "key": "D", "text": "Only a generated image" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Results include structured fields with values and confidence scores plus a markdown text representation, ready for downstream systems.",
+        "distractors": {
+          "B": "It returns rich structured data, not just a boolean.",
+          "C": "It is not an audio waveform.",
+          "D": "It is not an image."
+        }
+      },
+      "tags": ["information-extraction", "output"]
+    },
+    {
+      "id": "fi-040",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "To extract a caller's name, message summary, and callback number from a voicemail recording, which analyzer ID fits?",
+      "options": [
+        { "key": "A", "text": "prebuilt-audioSearch" },
+        { "key": "B", "text": "prebuilt-invoice" },
+        { "key": "C", "text": "prebuilt-videoSearch" },
+        { "key": "D", "text": "prebuilt-imageSearch" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Audio extraction (transcribe + structured insights from recordings) uses prebuilt-audioSearch.",
+        "distractors": {
+          "B": "prebuilt-invoice is for documents.",
+          "C": "prebuilt-videoSearch is for video.",
+          "D": "prebuilt-imageSearch is for images."
+        }
+      },
+      "tags": ["information-extraction", "audio", "analyzer"]
+    },
+    {
+      "id": "fi-041",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "To extract attendance, speakers, and a discussion summary from a meeting recording, which analyzer ID fits?",
+      "options": [
+        { "key": "A", "text": "prebuilt-videoSearch" },
+        { "key": "B", "text": "prebuilt-invoice" },
+        { "key": "C", "text": "prebuilt-audioSearch" },
+        { "key": "D", "text": "image_generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Video extraction (attendance, speakers, summaries) uses prebuilt-videoSearch.",
+        "distractors": {
+          "B": "prebuilt-invoice is for documents.",
+          "C": "prebuilt-audioSearch is audio-only.",
+          "D": "image_generation creates images."
+        }
+      },
+      "tags": ["information-extraction", "video", "analyzer"]
+    },
+    {
+      "id": "fi-042",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which content types can a single Content Understanding service handle?",
+      "options": [
+        { "key": "A", "text": "Documents, audio, and video" },
+        { "key": "B", "text": "Only PDFs" },
+        { "key": "C", "text": "Only audio" },
+        { "key": "D", "text": "Only live network streams" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Content Understanding supports documents, audio, and video extraction with the same begin_analyze pattern (different analyzer IDs).",
+        "distractors": {
+          "B": "It handles more than PDFs.",
+          "C": "It handles more than audio.",
+          "D": "It is not a live network stream tool."
+        }
+      },
+      "tags": ["information-extraction", "content-understanding"]
+    },
+    {
+      "id": "fi-043",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which TWO methods belong to the Azure Language SDK (TextAnalyticsClient)? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "detect_language()" },
+        { "key": "B", "text": "recognize_pii_entities()" },
+        { "key": "C", "text": "begin_analyze()" },
+        { "key": "D", "text": "speak_text_async()" },
+        { "key": "E", "text": "tools=[{\"type\": \"image_generation\"}]" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "detect_language() and recognize_pii_entities() are Azure Language SDK methods.",
+        "distractors": {
+          "C": "begin_analyze() is Content Understanding.",
+          "D": "speak_text_async() is text-to-speech.",
+          "E": "That is the image-generation tool, not an Azure Language method."
+        }
+      },
+      "tags": ["text-analysis", "azure-language", "multi-select"]
+    },
+    {
+      "id": "fi-044",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which THREE content types can Azure Content Understanding extract from? (Choose three.)",
+      "options": [
+        { "key": "A", "text": "Documents" },
+        { "key": "B", "text": "Audio" },
+        { "key": "C", "text": "Video" },
+        { "key": "D", "text": "Live phone-call routing tables" },
+        { "key": "E", "text": "Firewall logs in real time" }
+      ],
+      "correct": ["A", "B", "C"],
+      "explanation": {
+        "correct": "Content Understanding extracts from documents, audio, and video.",
+        "distractors": {
+          "D": "Call routing tables are not a Content Understanding input type.",
+          "E": "Real-time firewall logs are not a Content Understanding input type."
+        }
+      },
+      "tags": ["information-extraction", "multi-select"]
+    },
+    {
+      "id": "fi-045",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO statements about image generation in Foundry are correct? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "It is invoked via tools=[{\"type\": \"image_generation\"}]" },
+        { "key": "B", "text": "The result is returned as base64 to decode to a file" },
+        { "key": "C", "text": "It uses SpeechRecognizer" },
+        { "key": "D", "text": "It returns an ISO 639-1 language code" },
+        { "key": "E", "text": "It requires begin_analyze()" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Image generation uses the image_generation tool and returns base64 image data you decode to a file.",
+        "distractors": {
+          "C": "SpeechRecognizer is for speech-to-text.",
+          "D": "ISO codes come from language detection.",
+          "E": "begin_analyze() is the Content Understanding pattern."
+        }
+      },
+      "tags": ["computer-vision", "image-generation", "multi-select"]
+    },
+    {
+      "id": "fi-046",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which TWO objects are part of the speech-to-text setup in the Azure Speech SDK? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "SpeechConfig" },
+        { "key": "B", "text": "SpeechRecognizer" },
+        { "key": "C", "text": "ContentUnderstandingClient" },
+        { "key": "D", "text": "TextAnalyticsClient" },
+        { "key": "E", "text": "AIProjectClient" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "SpeechConfig (auth/endpoint) and SpeechRecognizer are used for speech-to-text (with AudioConfig for input).",
+        "distractors": {
+          "C": "ContentUnderstandingClient is for extraction.",
+          "D": "TextAnalyticsClient is for text analysis.",
+          "E": "AIProjectClient is for agents."
+        }
+      },
+      "tags": ["speech", "stt", "multi-select"]
+    },
+    {
+      "id": "fi-047",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A customer-service platform needs three text/speech features. (1) Identify the language of inbound chat messages deterministically for routing. (2) Transcribe live phone calls in real time. (3) Read out automated responses to callers in a natural voice.",
+      "subQuestions": [
+        {
+          "id": "fi-047-a",
+          "type": "single",
+          "stem": "Feature (1) deterministic language identification — which method/service?",
+          "options": [
+            { "key": "A", "text": "Azure Language SDK detect_language()" },
+            { "key": "B", "text": "image_generation tool" },
+            { "key": "C", "text": "SpeechSynthesizer" },
+            { "key": "D", "text": "prebuilt-invoice" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Deterministic language detection uses the Azure Language SDK detect_language().",
+            "distractors": {
+              "B": "Image generation is a vision tool.",
+              "C": "SpeechSynthesizer is text-to-speech.",
+              "D": "prebuilt-invoice extracts invoice fields."
+            }
+          }
+        },
+        {
+          "id": "fi-047-b",
+          "type": "single",
+          "stem": "Feature (2) real-time call transcription — which approach?",
+          "options": [
+            { "key": "A", "text": "Speech SDK real-time recognition (SpeechRecognizer, continuous recognition)" },
+            { "key": "B", "text": "Batch transcription only" },
+            { "key": "C", "text": "image_generation" },
+            { "key": "D", "text": "detect_language()" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Live transcription uses real-time continuous recognition via SpeechRecognizer.",
+            "distractors": {
+              "B": "Batch is for pre-recorded files, not live calls.",
+              "C": "Image generation is unrelated.",
+              "D": "detect_language identifies language of text."
+            }
+          }
+        },
+        {
+          "id": "fi-047-c",
+          "type": "single",
+          "stem": "Feature (3) read responses aloud naturally — which service/object?",
+          "options": [
+            { "key": "A", "text": "Speech SDK SpeechSynthesizer with a neural voice" },
+            { "key": "B", "text": "TextAnalyticsClient" },
+            { "key": "C", "text": "ContentUnderstandingClient" },
+            { "key": "D", "text": "Sora" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Natural spoken output uses SpeechSynthesizer with neural voices (text-to-speech).",
+            "distractors": {
+              "B": "TextAnalyticsClient is for text analysis.",
+              "C": "ContentUnderstandingClient is for extraction.",
+              "D": "Sora generates video."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "text-analysis", "speech"]
+    },
+    {
+      "id": "fi-048",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A media team has three vision needs. (1) Describe uploaded product photos in natural language. (2) Generate brand illustrations from text prompts. (3) Produce a short promotional video from a prompt.",
+      "subQuestions": [
+        {
+          "id": "fi-048-a",
+          "type": "single",
+          "stem": "Feature (1) describe photos — which approach?",
+          "options": [
+            { "key": "A", "text": "A multimodal model with input_image in the Responses API" },
+            { "key": "B", "text": "tools=[{\"type\": \"image_generation\"}]" },
+            { "key": "C", "text": "Sora REST API" },
+            { "key": "D", "text": "prebuilt-audioSearch" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Describing an image uses a multimodal model receiving the image via input_image.",
+            "distractors": {
+              "B": "That generates images.",
+              "C": "Sora generates video.",
+              "D": "That is audio extraction."
+            }
+          }
+        },
+        {
+          "id": "fi-048-b",
+          "type": "single",
+          "stem": "Feature (2) generate illustrations from prompts — which approach?",
+          "options": [
+            { "key": "A", "text": "tools=[{\"type\": \"image_generation\"}] with a GPT-Image model" },
+            { "key": "B", "text": "input_image content type" },
+            { "key": "C", "text": "SpeechSynthesizer" },
+            { "key": "D", "text": "detect_language()" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Generating images uses the image_generation tool with a GPT-Image model.",
+            "distractors": {
+              "B": "input_image sends an image in, it does not create one.",
+              "C": "SpeechSynthesizer is TTS.",
+              "D": "detect_language is text analysis."
+            }
+          }
+        },
+        {
+          "id": "fi-048-c",
+          "type": "single",
+          "stem": "Feature (3) produce a promo video — which approach?",
+          "options": [
+            { "key": "A", "text": "Sora via REST API (create → poll → download)" },
+            { "key": "B", "text": "GPT-Image-1 image_generation tool" },
+            { "key": "C", "text": "TextAnalyticsClient" },
+            { "key": "D", "text": "begin_analyze() with prebuilt-invoice" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Video generation uses Sora through the REST API with the async create-poll-download pattern.",
+            "distractors": {
+              "B": "GPT-Image creates still images, not video.",
+              "C": "TextAnalyticsClient is text analysis.",
+              "D": "That is document extraction."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "computer-vision", "image-generation", "video-generation"]
+    },
+    {
+      "id": "fi-049",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A finance back-office wants to (1) extract structured fields from scanned PDF invoices, (2) pull caller name and callback number from voicemails, and (3) get attendance and a summary from recorded meetings.",
+      "subQuestions": [
+        {
+          "id": "fi-049-a",
+          "type": "single",
+          "stem": "Feature (1) invoice fields — which analyzer?",
+          "options": [
+            { "key": "A", "text": "prebuilt-invoice" },
+            { "key": "B", "text": "prebuilt-audioSearch" },
+            { "key": "C", "text": "prebuilt-videoSearch" },
+            { "key": "D", "text": "image_generation" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Invoice extraction uses prebuilt-invoice.",
+            "distractors": {
+              "B": "Audio analyzer is for recordings.",
+              "C": "Video analyzer is for video.",
+              "D": "image_generation creates images."
+            }
+          }
+        },
+        {
+          "id": "fi-049-b",
+          "type": "single",
+          "stem": "Feature (2) voicemail extraction — which analyzer?",
+          "options": [
+            { "key": "A", "text": "prebuilt-audioSearch" },
+            { "key": "B", "text": "prebuilt-invoice" },
+            { "key": "C", "text": "prebuilt-videoSearch" },
+            { "key": "D", "text": "prebuilt-imageSearch" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Voicemail (audio) extraction uses prebuilt-audioSearch.",
+            "distractors": {
+              "B": "Invoice analyzer is for documents.",
+              "C": "Video analyzer is for video.",
+              "D": "Image analyzer is for images."
+            }
+          }
+        },
+        {
+          "id": "fi-049-c",
+          "type": "single",
+          "stem": "Feature (3) meeting attendance + summary — which analyzer and what call pattern?",
+          "options": [
+            { "key": "A", "text": "prebuilt-videoSearch with begin_analyze() → poller.result()" },
+            { "key": "B", "text": "prebuilt-invoice with responses.create()" },
+            { "key": "C", "text": "detect_language() then redact" },
+            { "key": "D", "text": "image_generation tool" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Video meeting extraction uses prebuilt-videoSearch with the async begin_analyze() → poller.result() pattern.",
+            "distractors": {
+              "B": "Invoice analyzer + responses.create() is the wrong analyzer and wrong API.",
+              "C": "Those are text-analysis steps.",
+              "D": "image_generation creates images."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "information-extraction", "async"]
+    },
+    {
+      "id": "fi-050",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A team needs a single conversation to extract key phrases, summarise, and translate text, with flexibility prioritised over exact reproducibility. Which approach should they pick?",
+      "options": [
+        { "key": "A", "text": "A general-purpose model via the OpenAI Responses API" },
+        { "key": "B", "text": "Azure Language deterministic analysers only" },
+        { "key": "C", "text": "Content Understanding prebuilt-invoice" },
+        { "key": "D", "text": "Sora video generation" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Flexible, compound text tasks in one conversation favour a general-purpose model via the Responses API.",
+        "distractors": {
+          "B": "Azure Language is best when determinism/consistency is the priority.",
+          "C": "prebuilt-invoice extracts invoice fields, not general text tasks.",
+          "D": "Sora generates video, unrelated to text tasks."
+        }
+      },
+      "tags": ["text-analysis", "approaches", "scenario"]
+    }
+  ]
+}

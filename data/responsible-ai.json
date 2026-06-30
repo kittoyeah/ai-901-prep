@@ -1,0 +1,964 @@
+{
+  "section": "responsible-ai",
+  "title": "Responsible AI Principles",
+  "blueprintRef": "Identify AI concepts and capabilities (40-45%) > Describe principles of responsible AI",
+  "source": "Concepts 1 — Introduction to AI Concepts",
+  "questions": [
+    {
+      "id": "rai-001",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "A bank uses an AI model to approve or reject loan applications. An audit finds the model rejects applicants from a particular postcode at a much higher rate, unrelated to their finances. Which Responsible AI principle is most directly violated?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Reliability & safety" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Fairness is about minimising bias and discriminatory outputs across groups. Rejecting a group at a higher rate for reasons unrelated to merit is a fairness failure.",
+        "distractors": {
+          "B": "Transparency concerns disclosing that AI is used and how it works, not the presence of bias.",
+          "C": "Privacy & security concerns protecting data from leaks, not discriminatory decisions.",
+          "D": "Reliability & safety concerns consistent, safe performance, not group bias."
+        }
+      },
+      "tags": ["fairness", "responsible-ai"]
+    },
+    {
+      "id": "rai-002",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A facial recognition system deletes temporary images of people immediately after matching is complete. Which Responsible AI principle does this practice support?",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Privacy & security" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Fairness" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Privacy & security requires protecting personal data and not retaining/leaking it. Deleting temporary images after use protects personal data.",
+        "distractors": {
+          "A": "Inclusiveness is about serving all users, not data handling.",
+          "C": "Accountability is about governance and ownership of outcomes, not deleting images.",
+          "D": "Fairness is about bias in outputs, not data retention."
+        }
+      },
+      "tags": ["privacy-security", "responsible-ai"]
+    },
+    {
+      "id": "rai-003",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A speech-based virtual assistant automatically generates on-screen text captions of everything it says aloud, so deaf and hard-of-hearing users can use it. Which Responsible AI principle is being applied?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Reliability & safety" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["C"],
+      "explanation": {
+        "correct": "Inclusiveness means AI should empower and be usable by everyone, regardless of ability. Captions for hard-of-hearing users is a textbook inclusiveness practice.",
+        "distractors": {
+          "A": "Transparency is disclosing AI use and limitations, not accessibility.",
+          "B": "Reliability & safety is about safe, consistent operation.",
+          "D": "Accountability is about governance and human ownership of outcomes."
+        }
+      },
+      "tags": ["inclusiveness", "responsible-ai"]
+    },
+    {
+      "id": "rai-004",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A loan-approval application clearly informs each customer that an AI model is being used in the decision and explains which features (income, credit history) the model considers. This is primarily an example of which principle? (Note: distinguish from the principle about who is answerable for the outcome.)",
+      "options": [
+        { "key": "A", "text": "Accountability" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Fairness" },
+        { "key": "D", "text": "Inclusiveness" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Transparency is about making users aware AI is used and how it works (its features and limitations). Disclosing AI use and the features considered is transparency.",
+        "distractors": {
+          "A": "Accountability is about people/orgs being answerable and applying governance for outcomes, not the act of disclosure to the user. This is the common trap on this question.",
+          "C": "Fairness is about avoiding bias, not disclosure.",
+          "D": "Inclusiveness is about serving all users."
+        }
+      },
+      "tags": ["transparency", "accountability", "responsible-ai"]
+    },
+    {
+      "id": "rai-005",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A warehouse robot is configured to require a high confidence threshold before it physically picks up an item near a human worker, and to stop if confidence is low. Which Responsible AI principle does this design choice reflect?",
+      "options": [
+        { "key": "A", "text": "Reliability & safety" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Transparency" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Reliability & safety recognises AI is probabilistic and not infallible; using confidence thresholds and fail-safes to prevent harm is a reliability & safety practice.",
+        "distractors": {
+          "B": "Fairness concerns group bias.",
+          "C": "Privacy & security concerns data protection.",
+          "D": "Transparency concerns disclosing AI use."
+        }
+      },
+      "tags": ["reliability-safety", "responsible-ai"]
+    },
+    {
+      "id": "rai-006",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An organisation establishes a governance board that defines policies, keeps audit trails, and identifies the people answerable when its AI systems cause harm. Which principle is this?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Reliability & safety" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["C"],
+      "explanation": {
+        "correct": "Accountability means the people and organisations developing AI are answerable for it, applying governance frameworks, policies and audit trails. A governance board with defined ownership is accountability.",
+        "distractors": {
+          "A": "Transparency is disclosing AI use and how it works to users, not internal governance ownership.",
+          "B": "Reliability & safety is about safe, consistent technical operation.",
+          "D": "Privacy & security is about data protection."
+        }
+      },
+      "tags": ["accountability", "responsible-ai"]
+    },
+    {
+      "id": "rai-007",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which statement best describes the purpose of Responsible AI principles overall?",
+      "options": [
+        { "key": "A", "text": "To maximise the accuracy of machine learning models" },
+        { "key": "B", "text": "To provide guardrails that mitigate harmful, illegal, or offensive outcomes from AI systems" },
+        { "key": "C", "text": "To reduce the cost of training large language models" },
+        { "key": "D", "text": "To guarantee an AI system never makes a mistake" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Responsible AI is a set of guardrails to mitigate harmful, illegal, or offensive content and actions, considered from conception through operation.",
+        "distractors": {
+          "A": "Accuracy is a performance goal, not the purpose of responsible AI.",
+          "C": "Cost reduction is unrelated to responsible AI principles.",
+          "D": "AI is probabilistic; responsible AI mitigates risk but cannot guarantee zero mistakes (that contradicts the reliability & safety premise)."
+        }
+      },
+      "tags": ["responsible-ai", "overview"]
+    },
+    {
+      "id": "rai-008",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A university admissions AI is tested before deployment to ensure it does not systematically disadvantage applicants based on gender or ethnicity. Which principle drives this testing?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Inclusiveness" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Transparency" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Testing for demographic bias to avoid discriminatory outputs is the core of Fairness.",
+        "distractors": {
+          "B": "Inclusiveness is about making the system usable by all (e.g., accessibility), not testing for bias in decisions. This is the classic fairness-vs-inclusiveness trap.",
+          "C": "Accountability is about governance ownership.",
+          "D": "Transparency is about disclosure."
+        }
+      },
+      "tags": ["fairness", "inclusiveness", "responsible-ai"]
+    },
+    {
+      "id": "rai-009",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "A healthcare provider is deploying an AI triage assistant. Which TWO of the following actions specifically address the Privacy & security principle? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Encrypt patient data used to train and run the model" },
+        { "key": "B", "text": "Add a confidence threshold so low-certainty cases escalate to a clinician" },
+        { "key": "C", "text": "Enforce access controls so only authorised staff can view model inputs and outputs" },
+        { "key": "D", "text": "Provide the tool in multiple languages for non-English speakers" },
+        { "key": "E", "text": "Publish a notice that AI is used in triage" }
+      ],
+      "correct": ["A", "C"],
+      "explanation": {
+        "correct": "Privacy & security is about protecting data from leaks and unauthorised access. Encrypting patient data (A) and enforcing access controls (C) both protect personal data.",
+        "distractors": {
+          "B": "Confidence thresholds / human escalation address Reliability & safety, not privacy.",
+          "D": "Multi-language support addresses Inclusiveness.",
+          "E": "Publishing a notice that AI is used addresses Transparency."
+        }
+      },
+      "tags": ["privacy-security", "multi-select", "responsible-ai"]
+    },
+    {
+      "id": "rai-010",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A recruitment startup builds an AI tool that screens CVs and ranks candidates. During a pilot, three issues are reported: (1) the tool ranks male candidates higher for engineering roles even when qualifications are equal; (2) candidates are never told an AI was involved in screening; (3) when a candidate complains, no one in the company can say who owns the decision or how to appeal it.",
+      "subQuestions": [
+        {
+          "id": "rai-010-a",
+          "type": "single",
+          "stem": "Issue (1) — male candidates ranked higher with equal qualifications — most directly violates which principle?",
+          "options": [
+            { "key": "A", "text": "Fairness" },
+            { "key": "B", "text": "Transparency" },
+            { "key": "C", "text": "Accountability" },
+            { "key": "D", "text": "Reliability & safety" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Systematic bias favouring one group with equal qualifications is a Fairness violation.",
+            "distractors": {
+              "B": "Transparency relates to issue (2), not the bias.",
+              "C": "Accountability relates to issue (3).",
+              "D": "Reliability & safety is about safe consistent operation, not group bias."
+            }
+          }
+        },
+        {
+          "id": "rai-010-b",
+          "type": "single",
+          "stem": "Issues (2) and (3) — candidates not told AI was used, and no clear owner or appeal path — map to which TWO principles respectively?",
+          "options": [
+            { "key": "A", "text": "(2) Transparency, (3) Accountability" },
+            { "key": "B", "text": "(2) Accountability, (3) Transparency" },
+            { "key": "C", "text": "(2) Inclusiveness, (3) Fairness" },
+            { "key": "D", "text": "(2) Privacy & security, (3) Reliability & safety" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Not disclosing AI use is a Transparency failure; having no owner or appeal path for outcomes is an Accountability failure.",
+            "distractors": {
+              "B": "The mapping is reversed.",
+              "C": "Inclusiveness/Fairness do not fit disclosure or ownership.",
+              "D": "Privacy and reliability do not fit these two issues."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "fairness", "transparency", "accountability", "responsible-ai"]
+    },
+    {
+      "id": "rai-011",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which Responsible AI principle is defined as 'minimise bias in training data and test for discriminatory outputs'?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Inclusiveness" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Transparency" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "This is the definition of Fairness.",
+        "distractors": {
+          "B": "Inclusiveness = AI open to everyone, don't exclude users.",
+          "C": "Accountability = people/orgs answerable, governance.",
+          "D": "Transparency = users aware of how the system works."
+        }
+      },
+      "tags": ["fairness", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-012",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which principle states that AI is probabilistic and not infallible, so risks must be mitigated accordingly?",
+      "options": [
+        { "key": "A", "text": "Privacy & security" },
+        { "key": "B", "text": "Reliability & safety" },
+        { "key": "C", "text": "Fairness" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Reliability & safety recognises AI is probabilistic and not infallible.",
+        "distractors": {
+          "A": "Privacy & security = protect data from leaks.",
+          "C": "Fairness = avoid bias.",
+          "D": "Accountability = governance and ownership."
+        }
+      },
+      "tags": ["reliability-safety", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-013",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which principle requires that training data is kept secure and the model does not leak personal or organisational details?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Inclusiveness" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Reliability & safety" }
+      ],
+      "correct": ["C"],
+      "explanation": {
+        "correct": "Privacy & security covers securing training data and preventing leakage of personal/org details.",
+        "distractors": {
+          "A": "Transparency = disclosure of how the system works.",
+          "B": "Inclusiveness = serve everyone.",
+          "D": "Reliability & safety = safe, consistent operation."
+        }
+      },
+      "tags": ["privacy-security", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-014",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Which principle means AI should be open to everyone and not exclude any group of users?",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Inclusiveness = AI should be open to everyone; don't exclude users.",
+        "distractors": {
+          "B": "Fairness is about bias in outputs, not access/exclusion. (Common trap vs inclusiveness.)",
+          "C": "Transparency = disclosure.",
+          "D": "Accountability = governance/ownership."
+        }
+      },
+      "tags": ["inclusiveness", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-015",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which principle is about making users aware of how an AI system works and what its limitations are?",
+      "options": [
+        { "key": "A", "text": "Accountability" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Inclusiveness" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Transparency = make users aware of how the system works and its limitations.",
+        "distractors": {
+          "A": "Accountability = who is answerable + governance, not user-facing disclosure.",
+          "C": "Privacy & security = data protection.",
+          "D": "Inclusiveness = serve everyone."
+        }
+      },
+      "tags": ["transparency", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-016",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which principle holds that the people and organisations that build AI are answerable for it and should apply governance frameworks?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Accountability" },
+        { "key": "C", "text": "Reliability & safety" },
+        { "key": "D", "text": "Fairness" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Accountability = developers/orgs are answerable; apply governance frameworks.",
+        "distractors": {
+          "A": "Transparency = disclosure to users.",
+          "C": "Reliability & safety = safe operation.",
+          "D": "Fairness = avoid bias."
+        }
+      },
+      "tags": ["accountability", "definition", "responsible-ai"]
+    },
+    {
+      "id": "rai-017",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A self-driving car company runs millions of simulated kilometres and sets strict performance thresholds before allowing the AI to operate on public roads. Which principle does this primarily address?",
+      "options": [
+        { "key": "A", "text": "Reliability & safety" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Extensive testing and performance thresholds to prevent harm = Reliability & safety.",
+        "distractors": {
+          "B": "Transparency = disclosure.",
+          "C": "Inclusiveness = serve everyone.",
+          "D": "Privacy & security = data protection."
+        }
+      },
+      "tags": ["reliability-safety", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-018",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A chatbot displays a clear banner: 'You are chatting with an AI assistant. Responses may be inaccurate.' Which principle is demonstrated?",
+      "options": [
+        { "key": "A", "text": "Accountability" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Reliability & safety" }
+      ],
+      "correct": ["C"],
+      "explanation": {
+        "correct": "Disclosing that it is AI and stating its limitations is Transparency.",
+        "distractors": {
+          "A": "Accountability = governance/ownership.",
+          "B": "Fairness = avoid bias.",
+          "D": "Reliability & safety = safe operation (the disclaimer discloses risk, it doesn't mitigate it)."
+        }
+      },
+      "tags": ["transparency", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-019",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A translation app adds support for sign-language video output and high-contrast modes so people with disabilities can use it. Which principle is being applied?",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Designing so people of all abilities can use the product = Inclusiveness.",
+        "distractors": {
+          "B": "Transparency = disclosure.",
+          "C": "Privacy & security = data protection.",
+          "D": "Accountability = governance/ownership."
+        }
+      },
+      "tags": ["inclusiveness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-020",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A company keeps detailed logs of every AI-driven decision and assigns a named manager responsible for reviewing complaints about the system. Which principle does this support?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Accountability" },
+        { "key": "C", "text": "Reliability & safety" },
+        { "key": "D", "text": "Inclusiveness" }
+      ],
+      "correct": ["B"],
+      "explanation": {
+        "correct": "Audit logs + a named responsible owner for outcomes = Accountability.",
+        "distractors": {
+          "A": "Transparency is informing users, not internal ownership of outcomes.",
+          "C": "Reliability & safety = safe operation.",
+          "D": "Inclusiveness = serve everyone."
+        }
+      },
+      "tags": ["accountability", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-021",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A photo-tagging model is trained mostly on images of light-skinned faces and performs poorly on darker-skinned faces. Which principle is most directly at risk?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Privacy & security" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Unrepresentative training data causing worse outcomes for a group is a Fairness (bias) problem.",
+        "distractors": {
+          "B": "Privacy = data protection.",
+          "C": "Transparency = disclosure.",
+          "D": "Accountability = governance (relevant to fixing it, but the bias itself is fairness)."
+        }
+      },
+      "tags": ["fairness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-022",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An AI vendor anonymises and encrypts customer records before using them for training, and ensures the model cannot regurgitate any individual's data. Which principle is being upheld?",
+      "options": [
+        { "key": "A", "text": "Privacy & security" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Reliability & safety" },
+        { "key": "D", "text": "Inclusiveness" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Anonymisation, encryption, and preventing data leakage are Privacy & security practices.",
+        "distractors": {
+          "B": "Fairness = avoid bias.",
+          "C": "Reliability & safety = safe operation.",
+          "D": "Inclusiveness = serve everyone."
+        }
+      },
+      "tags": ["privacy-security", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-023",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A medical-imaging AI flags scans it is uncertain about and routes them to a radiologist instead of auto-diagnosing. Which principle does this design best reflect?",
+      "options": [
+        { "key": "A", "text": "Reliability & safety" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Fairness" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Acknowledging the model can be wrong and adding a human fail-safe for low-confidence cases = Reliability & safety.",
+        "distractors": {
+          "B": "Transparency = disclosure to users.",
+          "C": "Accountability = governance/ownership (related but the design choice here is about safe handling of uncertainty).",
+          "D": "Fairness = avoid bias."
+        }
+      },
+      "tags": ["reliability-safety", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-024",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which of the following is NOT one of Microsoft's six Responsible AI principles?",
+      "options": [
+        { "key": "A", "text": "Profitability" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Accountability" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The six principles are fairness, reliability & safety, privacy & security, inclusiveness, transparency, and accountability. Profitability is not one of them.",
+        "distractors": {
+          "B": "Fairness is a principle.",
+          "C": "Transparency is a principle.",
+          "D": "Accountability is a principle."
+        }
+      },
+      "tags": ["overview", "responsible-ai"]
+    },
+    {
+      "id": "rai-025",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "College admissions teams test an AI tool to ensure it does not favour or penalise applicants based on demographic background. This is the textbook example of which principle?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Accountability" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Transparency" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Testing for and avoiding demographic bias in admissions is the canonical Fairness example.",
+        "distractors": {
+          "B": "Accountability = governance/ownership.",
+          "C": "Inclusiveness = access for all (different from bias testing).",
+          "D": "Transparency = disclosure."
+        }
+      },
+      "tags": ["fairness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-026",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Distinguish carefully: an AI system that is technically unbiased but is only available in English, locking out non-English speakers, primarily fails which principle?",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Reliability & safety" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Excluding a group from being able to use the system is an Inclusiveness failure, even when outputs are unbiased.",
+        "distractors": {
+          "B": "Fairness concerns biased outputs among users; here outputs are unbiased but some users are excluded entirely. This is the fairness-vs-inclusiveness trap.",
+          "C": "Transparency = disclosure.",
+          "D": "Reliability & safety = safe operation."
+        }
+      },
+      "tags": ["inclusiveness", "fairness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-027",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A company publishes a model card describing the data the model was trained on and its known weaknesses, AND separately names an executive answerable if the model causes harm. The model card maps to which principle, and naming the executive maps to which?",
+      "options": [
+        { "key": "A", "text": "Model card = Transparency; executive = Accountability" },
+        { "key": "B", "text": "Model card = Accountability; executive = Transparency" },
+        { "key": "C", "text": "Model card = Fairness; executive = Reliability & safety" },
+        { "key": "D", "text": "Model card = Privacy & security; executive = Inclusiveness" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Disclosing training data and weaknesses = Transparency. Naming someone answerable for harm = Accountability.",
+        "distractors": {
+          "B": "Reversed mapping.",
+          "C": "Neither item is about bias or safe operation specifically.",
+          "D": "Neither item is about data protection or access for all."
+        }
+      },
+      "tags": ["transparency", "accountability", "responsible-ai"]
+    },
+    {
+      "id": "rai-028",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which pairing correctly distinguishes Privacy & security from Reliability & safety?",
+      "options": [
+        { "key": "A", "text": "Privacy & security protects data from misuse/leaks; Reliability & safety ensures the system performs safely and consistently" },
+        { "key": "B", "text": "Privacy & security ensures the system performs safely; Reliability & safety protects data from leaks" },
+        { "key": "C", "text": "Both refer to disclosing AI use to end users" },
+        { "key": "D", "text": "Both refer to eliminating demographic bias" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Privacy & security = data protection; Reliability & safety = safe, consistent performance.",
+        "distractors": {
+          "B": "Definitions are swapped.",
+          "C": "That describes Transparency.",
+          "D": "That describes Fairness."
+        }
+      },
+      "tags": ["privacy-security", "reliability-safety", "responsible-ai"]
+    },
+    {
+      "id": "rai-029",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "When should Responsible AI principles be considered in the lifecycle of an AI system?",
+      "options": [
+        { "key": "A", "text": "Only after deployment, if users complain" },
+        { "key": "B", "text": "Only during model training" },
+        { "key": "C", "text": "From conception through operation" },
+        { "key": "D", "text": "Only when preparing marketing materials" }
+      ],
+      "correct": ["C"],
+      "explanation": {
+        "correct": "Responsible AI must be considered from conception through operation, not as an afterthought.",
+        "distractors": {
+          "A": "Treating it as reactive defeats the purpose.",
+          "B": "Training is only one phase.",
+          "D": "Marketing is unrelated to the principles."
+        }
+      },
+      "tags": ["overview", "responsible-ai"]
+    },
+    {
+      "id": "rai-030",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A facial-recognition deployment is criticised because nobody at the organisation will take responsibility for wrongful matches and there is no escalation process. Which principle is most lacking?",
+      "options": [
+        { "key": "A", "text": "Accountability" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Privacy & security" },
+        { "key": "D", "text": "Inclusiveness" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "No ownership of outcomes and no escalation path is an Accountability gap.",
+        "distractors": {
+          "B": "Transparency = disclosing AI use, not ownership.",
+          "C": "Privacy = data protection (a different facial-recognition concern).",
+          "D": "Inclusiveness = access for all."
+        }
+      },
+      "tags": ["accountability", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-031",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which THREE of the following are among Microsoft's six Responsible AI principles? (Choose three.)",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Scalability" },
+        { "key": "D", "text": "Reliability & safety" },
+        { "key": "E", "text": "Explainability-as-a-service" }
+      ],
+      "correct": ["A", "B", "D"],
+      "explanation": {
+        "correct": "Inclusiveness, Transparency, and Reliability & safety are three of the six principles (the others are Fairness, Privacy & security, Accountability).",
+        "distractors": {
+          "C": "Scalability is an engineering concern, not a Responsible AI principle.",
+          "E": "Not a Microsoft Responsible AI principle."
+        }
+      },
+      "tags": ["overview", "multi-select", "responsible-ai"]
+    },
+    {
+      "id": "rai-032",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "A bank is rolling out an AI credit assistant. Which TWO actions specifically support the Transparency principle? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Tell applicants an AI model contributes to the decision" },
+        { "key": "B", "text": "Explain which features (income, credit history) the model uses" },
+        { "key": "C", "text": "Encrypt applicant data at rest" },
+        { "key": "D", "text": "Add a confidence threshold that escalates edge cases to a human" },
+        { "key": "E", "text": "Offer the service in additional languages" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Disclosing AI involvement (A) and explaining the features it uses (B) make users aware of how the system works = Transparency.",
+        "distractors": {
+          "C": "Encryption = Privacy & security.",
+          "D": "Confidence threshold/human escalation = Reliability & safety.",
+          "E": "More languages = Inclusiveness."
+        }
+      },
+      "tags": ["transparency", "multi-select", "responsible-ai"]
+    },
+    {
+      "id": "rai-033",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A robotics team configures a warehouse robot to require a high confidence score before interacting physically with a human. Per the course examples, this maps to which principle?",
+      "options": [
+        { "key": "A", "text": "Reliability & safety" },
+        { "key": "B", "text": "Accountability" },
+        { "key": "C", "text": "Transparency" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Using confidence thresholds before physical interaction is the course's Reliability & safety example.",
+        "distractors": {
+          "B": "Accountability = governance.",
+          "C": "Transparency = disclosure.",
+          "D": "Privacy & security = data protection."
+        }
+      },
+      "tags": ["reliability-safety", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-034",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A facial identification system deletes temporary images after use. Per the course examples, which principle does this illustrate?",
+      "options": [
+        { "key": "A", "text": "Privacy & security" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Transparency" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Deleting temporary images after use is the course's Privacy & security example.",
+        "distractors": {
+          "B": "Fairness = bias.",
+          "C": "Inclusiveness = access for all.",
+          "D": "Transparency = disclosure."
+        }
+      },
+      "tags": ["privacy-security", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-035",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A speech-based agent generates text captions for hearing-impaired users. Per the course examples, which principle is this?",
+      "options": [
+        { "key": "A", "text": "Inclusiveness" },
+        { "key": "B", "text": "Reliability & safety" },
+        { "key": "C", "text": "Accountability" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Generating captions for hearing-impaired users is the course's Inclusiveness example.",
+        "distractors": {
+          "B": "Reliability & safety = safe operation.",
+          "C": "Accountability = governance.",
+          "D": "Privacy & security = data protection."
+        }
+      },
+      "tags": ["inclusiveness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-036",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An AI résumé screener works well for full-time applicants but consistently mis-ranks people with career gaps (often carers returning to work). The team has unbiased intent but never tested this group. Which principle is the primary concern?",
+      "options": [
+        { "key": "A", "text": "Fairness" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Reliability & safety" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Consistently worse outcomes for a particular group, regardless of intent, is a Fairness issue.",
+        "distractors": {
+          "B": "Transparency = disclosure.",
+          "C": "Reliability & safety = safe operation (the model runs fine, the issue is biased ranking).",
+          "D": "Privacy & security = data protection."
+        }
+      },
+      "tags": ["fairness", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-037",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Which scenario best illustrates Transparency rather than Accountability?",
+      "options": [
+        { "key": "A", "text": "An app shows users a notice that AI generated the recommendation and lists its known limitations" },
+        { "key": "B", "text": "A company appoints a Responsible AI board to own outcomes" },
+        { "key": "C", "text": "A team keeps audit trails of every automated decision" },
+        { "key": "D", "text": "An organisation defines who is liable when the model errs" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Informing users that AI is used and stating its limitations is Transparency.",
+        "distractors": {
+          "B": "An ownership board = Accountability.",
+          "C": "Audit trails for governance = Accountability.",
+          "D": "Defining liability = Accountability."
+        }
+      },
+      "tags": ["transparency", "accountability", "responsible-ai"]
+    },
+    {
+      "id": "rai-038",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "An online assistant clearly states 'I can make mistakes, please verify important information.' Which principle does the disclaimer primarily serve?",
+      "options": [
+        { "key": "A", "text": "Transparency" },
+        { "key": "B", "text": "Fairness" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Privacy & security" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Communicating the system's limitations to users is Transparency.",
+        "distractors": {
+          "B": "Fairness = bias.",
+          "C": "Inclusiveness = access for all.",
+          "D": "Privacy & security = data protection."
+        }
+      },
+      "tags": ["transparency", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-039",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A generative model is found to sometimes output snippets of real people's private contact details that appeared in its training data. Which principle is violated?",
+      "options": [
+        { "key": "A", "text": "Privacy & security" },
+        { "key": "B", "text": "Transparency" },
+        { "key": "C", "text": "Inclusiveness" },
+        { "key": "D", "text": "Fairness" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Leaking personal details from training data is a Privacy & security violation.",
+        "distractors": {
+          "B": "Transparency = disclosure of how it works.",
+          "C": "Inclusiveness = access for all.",
+          "D": "Fairness = bias."
+        }
+      },
+      "tags": ["privacy-security", "scenario", "responsible-ai"]
+    },
+    {
+      "id": "rai-040",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A city deploys an AI system to prioritise pothole repairs from citizen photo reports. Concerns raised: (1) wealthier suburbs submit more photos, so their roads get fixed faster while poorer areas are under-served; (2) the model occasionally misclassifies shadows as potholes, dispatching crews unnecessarily; (3) citizens are never told their submitted photos are stored indefinitely on a third-party server.",
+      "subQuestions": [
+        {
+          "id": "rai-040-a",
+          "type": "single",
+          "stem": "Issue (1) — under-serving poorer areas due to skewed input — most directly relates to which principle?",
+          "options": [
+            { "key": "A", "text": "Fairness" },
+            { "key": "B", "text": "Transparency" },
+            { "key": "C", "text": "Privacy & security" },
+            { "key": "D", "text": "Reliability & safety" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Systematically worse service for one group (driven by biased input) is a Fairness concern.",
+            "distractors": {
+              "B": "Transparency relates to issue (3).",
+              "C": "Privacy relates to issue (3).",
+              "D": "Reliability relates to issue (2)."
+            }
+          }
+        },
+        {
+          "id": "rai-040-b",
+          "type": "single",
+          "stem": "Issue (2) — shadows misclassified as potholes, wasting crews — relates to which principle?",
+          "options": [
+            { "key": "A", "text": "Reliability & safety" },
+            { "key": "B", "text": "Fairness" },
+            { "key": "C", "text": "Accountability" },
+            { "key": "D", "text": "Inclusiveness" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Model errors with real-world consequences (false positives dispatching crews) are a Reliability & safety concern.",
+            "distractors": {
+              "B": "Fairness relates to issue (1).",
+              "C": "Accountability is not the primary fit here.",
+              "D": "Inclusiveness is about access, not error rate."
+            }
+          }
+        },
+        {
+          "id": "rai-040-c",
+          "type": "single",
+          "stem": "Issue (3) — photos stored indefinitely on a third-party server without telling citizens — touches which TWO principles?",
+          "options": [
+            { "key": "A", "text": "Privacy & security and Transparency" },
+            { "key": "B", "text": "Fairness and Inclusiveness" },
+            { "key": "C", "text": "Reliability & safety and Accountability" },
+            { "key": "D", "text": "Inclusiveness and Transparency" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Indefinite third-party storage of personal photos is a Privacy & security concern; not telling citizens is a Transparency failure.",
+            "distractors": {
+              "B": "Neither fairness nor inclusiveness fits data storage/disclosure.",
+              "C": "Reliability relates to issue (2); accountability isn't the best fit.",
+              "D": "Inclusiveness does not fit; the data-handling half is privacy, not inclusiveness."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "fairness", "reliability-safety", "privacy-security", "transparency", "responsible-ai"]
+    }
+  ]
+}

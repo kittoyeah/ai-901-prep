@@ -1,0 +1,984 @@
+{
+  "section": "foundry-agents",
+  "title": "Implement Generative AI Apps & Agents with Foundry",
+  "blueprintRef": "Implement AI solutions using Microsoft Foundry (55-60%) > Implement generative AI apps and agents by using Foundry",
+  "source": "Module 1 & Module 2 (Get started with AI / Generative AI and Agents)",
+  "questions": [
+    {
+      "id": "fa-001",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Who sets the system prompt, and what is its purpose?",
+      "options": [
+        { "key": "A", "text": "The application developer; it defines the model's behaviour, tone, and constraints" },
+        { "key": "B", "text": "The end user; it asks the specific question" },
+        { "key": "C", "text": "Microsoft; it sets the billing tier" },
+        { "key": "D", "text": "The model; it generates itself randomly" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The system prompt is the developer-controlled instruction layer that sets behaviour, tone, role, and guardrails.",
+        "distractors": {
+          "B": "That describes the user prompt.",
+          "C": "It is not a billing setting.",
+          "D": "The model does not author its own system prompt."
+        }
+      },
+      "tags": ["prompts", "system-prompt"]
+    },
+    {
+      "id": "fa-002",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What is the user prompt?",
+      "options": [
+        { "key": "A", "text": "The specific question or instruction from the end user" },
+        { "key": "B", "text": "The developer's behaviour instructions" },
+        { "key": "C", "text": "The model's deployment name" },
+        { "key": "D", "text": "The TPM rate limit" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The user prompt is the end user's specific question, instruction, or conversation input.",
+        "distractors": {
+          "B": "That is the system prompt.",
+          "C": "Deployment name identifies the model deployment.",
+          "D": "TPM is a throughput setting."
+        }
+      },
+      "tags": ["prompts", "user-prompt"]
+    },
+    {
+      "id": "fa-003",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which of these is a good prompt-engineering practice?",
+      "options": [
+        { "key": "A", "text": "Be clear and specific, add context, give examples, and ask for structured output" },
+        { "key": "B", "text": "Keep instructions vague so the model is free" },
+        { "key": "C", "text": "Never give examples" },
+        { "key": "D", "text": "Avoid specifying any format" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Clear/specific wording, context, examples, and requesting structure all improve results.",
+        "distractors": {
+          "B": "Vagueness degrades output.",
+          "C": "Examples (few-shot) help.",
+          "D": "Asking for a format improves usability."
+        }
+      },
+      "tags": ["prompts", "best-practice"]
+    },
+    {
+      "id": "fa-004",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "How does a chat application maintain context across multiple turns of a conversation?",
+      "options": [
+        { "key": "A", "text": "It includes prior exchanges (conversation history) in subsequent prompts" },
+        { "key": "B", "text": "The model permanently memorises every user automatically" },
+        { "key": "C", "text": "It raises the temperature each turn" },
+        { "key": "D", "text": "It increases the TPM limit each turn" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Apps track and include (often summarised) conversation history in each new prompt so the model builds on context.",
+        "distractors": {
+          "B": "Models do not automatically remember users across calls; the app supplies history.",
+          "C": "Temperature is unrelated to context.",
+          "D": "TPM is unrelated to context."
+        }
+      },
+      "tags": ["prompts", "conversation-history"]
+    },
+    {
+      "id": "fa-005",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "What does Retrieval-Augmented Generation (RAG) add to a generative AI solution?",
+      "options": [
+        { "key": "A", "text": "It retrieves relevant data and augments the prompt so answers are grounded in that data" },
+        { "key": "B", "text": "It converts text to speech" },
+        { "key": "C", "text": "It increases the model's parameter count" },
+        { "key": "D", "text": "It removes the need for a deployed model" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "RAG retrieves relevant documents and adds them to the prompt so responses are grounded in your data rather than generic.",
+        "distractors": {
+          "B": "That is text-to-speech.",
+          "C": "RAG does not change model size.",
+          "D": "You still need a deployed model."
+        }
+      },
+      "tags": ["prompts", "rag"]
+    },
+    {
+      "id": "fa-006",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the Foundry Playground primarily used for?",
+      "options": [
+        { "key": "A", "text": "Testing prompts, tuning parameters, comparing models, and exporting working code" },
+        { "key": "B", "text": "Paying the Azure bill" },
+        { "key": "C", "text": "Hosting the production website" },
+        { "key": "D", "text": "Storing API keys" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Playground is a browser interface to try prompts, tune parameters, compare models, and export code.",
+        "distractors": {
+          "B": "It is not for billing.",
+          "C": "It is not a production host.",
+          "D": "Secrets belong in Key Vault, not the Playground."
+        }
+      },
+      "tags": ["playground"]
+    },
+    {
+      "id": "fa-007",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the typical order of steps to build a generative AI client app in Foundry?",
+      "options": [
+        { "key": "A", "text": "Create a project → deploy a model from the catalog → test in Playground → use in client code" },
+        { "key": "B", "text": "Write client code → then decide whether to use Azure" },
+        { "key": "C", "text": "Deploy to production → then pick a model" },
+        { "key": "D", "text": "Buy hardware → install the model locally" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The flow is: sign in/create project, deploy a model, experiment in Playground, then use it in a client app.",
+        "distractors": {
+          "B": "You select/deploy a model first.",
+          "C": "Model selection precedes production.",
+          "D": "Foundry is cloud PaaS; you do not buy hardware."
+        }
+      },
+      "tags": ["playground", "workflow"]
+    },
+    {
+      "id": "fa-008",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "After tuning a prompt and parameters in the Playground, how do you move those settings into your application?",
+      "options": [
+        { "key": "A", "text": "Export the generated code from the Playground and use it in your client" },
+        { "key": "B", "text": "Retype the entire model from memory" },
+        { "key": "C", "text": "It cannot be transferred to code" },
+        { "key": "D", "text": "Email the model to yourself" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Playground exports code so the same settings can be copied into a client application.",
+        "distractors": {
+          "B": "No need to retype; code is exported.",
+          "C": "It is exactly designed to transfer to code.",
+          "D": "That is not a real mechanism."
+        }
+      },
+      "tags": ["playground", "workflow"]
+    },
+    {
+      "id": "fa-009",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "When calling a deployed MODEL (not an agent) from a lightweight Python client against a Foundry endpoint, which API is used?",
+      "options": [
+        { "key": "A", "text": "The OpenAI Responses API (e.g., client.responses.create)" },
+        { "key": "B", "text": "The Foundry Projects API with an agent reference" },
+        { "key": "C", "text": "The Azure Speech SDK" },
+        { "key": "D", "text": "The Content Understanding SDK" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Calling a deployed model directly uses the OpenAI-compatible Responses API (client.responses.create) against the Foundry endpoint.",
+        "distractors": {
+          "B": "The Projects API with an agent reference is for calling agents, not raw models.",
+          "C": "The Speech SDK is for speech, not chat models.",
+          "D": "Content Understanding is for information extraction."
+        }
+      },
+      "tags": ["chat-client", "responses-api"]
+    },
+    {
+      "id": "fa-010",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In the lightweight chat client, what does the 'model' argument to responses.create refer to?",
+      "options": [
+        { "key": "A", "text": "The deployment name of the model you deployed in Foundry" },
+        { "key": "B", "text": "Your Azure subscription ID" },
+        { "key": "C", "text": "The temperature value" },
+        { "key": "D", "text": "The resource group name" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The 'model' parameter is the deployment name of the model you deployed.",
+        "distractors": {
+          "B": "Subscription ID is not passed here.",
+          "C": "Temperature is a separate parameter.",
+          "D": "Resource group is not the model argument."
+        }
+      },
+      "tags": ["chat-client", "responses-api"]
+    },
+    {
+      "id": "fa-011",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In the Responses API input list, messages typically carry which roles?",
+      "options": [
+        { "key": "A", "text": "system and user (and assistant for prior turns)" },
+        { "key": "B", "text": "admin and guest" },
+        { "key": "C", "text": "encoder and decoder" },
+        { "key": "D", "text": "train and test" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Messages use roles like system (developer instructions) and user (the question), with assistant for prior model turns.",
+        "distractors": {
+          "B": "These are not message roles.",
+          "C": "These are transformer components, not roles.",
+          "D": "These are dataset splits, not roles."
+        }
+      },
+      "tags": ["chat-client", "responses-api"]
+    },
+    {
+      "id": "fa-012",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "Where should API keys for a Foundry endpoint be stored in a production app?",
+      "options": [
+        { "key": "A", "text": "In Azure Key Vault, retrieved at runtime — never hard-coded in source" },
+        { "key": "B", "text": "Hard-coded directly in the source file" },
+        { "key": "C", "text": "In a public GitHub README" },
+        { "key": "D", "text": "In the system prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Secrets such as API keys belong in Azure Key Vault and are retrieved at runtime (e.g., via managed identity), never in code.",
+        "distractors": {
+          "B": "Hard-coding secrets is insecure.",
+          "C": "Publishing keys publicly is a serious security risk.",
+          "D": "The system prompt is not a secret store."
+        }
+      },
+      "tags": ["security", "key-vault"]
+    },
+    {
+      "id": "fa-013",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What three things does an AI agent package together?",
+      "options": [
+        { "key": "A", "text": "A model, instructions, and tools (often plus knowledge)" },
+        { "key": "B", "text": "A database, a website, and a firewall" },
+        { "key": "C", "text": "A GPU, a CPU, and storage" },
+        { "key": "D", "text": "Three different subscriptions" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "An agent = model (brain) + instructions (job description) + tools (actions), commonly with knowledge for grounding.",
+        "distractors": {
+          "B": "These are infrastructure components, not the agent definition.",
+          "C": "These are hardware, not agent components.",
+          "D": "Subscriptions are billing containers."
+        }
+      },
+      "tags": ["agents", "components"]
+    },
+    {
+      "id": "fa-014",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In an agent, what is the difference between 'tools' and 'knowledge'?",
+      "options": [
+        { "key": "A", "text": "Tools are callable actions/capabilities; knowledge is documents/data used for grounding (RAG)" },
+        { "key": "B", "text": "Tools are documents; knowledge is callable actions" },
+        { "key": "C", "text": "They are identical" },
+        { "key": "D", "text": "Tools set the temperature; knowledge sets max tokens" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Tools are actions the agent can call (search, code execution, APIs, MCP); knowledge is the documents/data retrieved to ground responses.",
+        "distractors": {
+          "B": "Definitions reversed.",
+          "C": "They are distinct.",
+          "D": "Neither sets generation parameters."
+        }
+      },
+      "tags": ["agents", "tools-knowledge"]
+    },
+    {
+      "id": "fa-015",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which of the following is an example of an agent TOOL (action) rather than knowledge?",
+      "options": [
+        { "key": "A", "text": "Code Interpreter / a custom API / an MCP server" },
+        { "key": "B", "text": "A folder of PDF policy documents" },
+        { "key": "C", "text": "A SharePoint document library used for retrieval" },
+        { "key": "D", "text": "An Azure Storage container of reference files" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Code Interpreter, custom APIs, and MCP servers are callable tools (actions).",
+        "distractors": {
+          "B": "PDF documents are knowledge sources.",
+          "C": "SharePoint content for retrieval is knowledge.",
+          "D": "Reference files in storage are knowledge."
+        }
+      },
+      "tags": ["agents", "tools-knowledge"]
+    },
+    {
+      "id": "fa-016",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is an example of agent KNOWLEDGE used for grounding?",
+      "options": [
+        { "key": "A", "text": "PDFs, SharePoint content, or Azure Storage data indexed for retrieval" },
+        { "key": "B", "text": "Code Interpreter" },
+        { "key": "C", "text": "A custom function that sends emails" },
+        { "key": "D", "text": "An MCP server exposing actions" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Knowledge sources are documents/datasets (PDFs, SharePoint, Azure Storage) ingested and indexed for RAG.",
+        "distractors": {
+          "B": "Code Interpreter is a tool (action).",
+          "C": "An email-sending function is an action tool.",
+          "D": "An MCP server provides callable tools."
+        }
+      },
+      "tags": ["agents", "tools-knowledge"]
+    },
+    {
+      "id": "fa-017",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the correct sequence to build an agent in the Foundry portal?",
+      "options": [
+        { "key": "A", "text": "Choose a model → write instructions → add tools → add knowledge → save → test in Playground" },
+        { "key": "B", "text": "Deploy to production → then choose a model" },
+        { "key": "C", "text": "Write client code first → then create the agent" },
+        { "key": "D", "text": "Buy a GPU → install the agent locally" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Build flow: pick a model, write system instructions, add tools, add knowledge, save as an agent, then test/refine in the Playground.",
+        "distractors": {
+          "B": "Model selection comes first, not after production.",
+          "C": "The agent is created in the portal before client integration.",
+          "D": "Foundry is cloud PaaS; no local GPU."
+        }
+      },
+      "tags": ["agents", "portal", "workflow"]
+    },
+    {
+      "id": "fa-018",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "When calling an AGENT (not a raw model) from code, which client/API is used?",
+      "options": [
+        { "key": "A", "text": "The Foundry Projects SDK / Project API (AIProjectClient) with an agent reference" },
+        { "key": "B", "text": "Only raw HTTP with no auth" },
+        { "key": "C", "text": "The Azure Speech SDK" },
+        { "key": "D", "text": "The Content Understanding SDK" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Agents are called via the Foundry Projects SDK (AIProjectClient) using the Project API and an agent reference.",
+        "distractors": {
+          "B": "Endpoints require authentication.",
+          "C": "Speech SDK is for speech.",
+          "D": "Content Understanding is for extraction."
+        }
+      },
+      "tags": ["agents", "project-api"]
+    },
+    {
+      "id": "fa-019",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "In the agent-calling code, how is the agent referenced in the request?",
+      "options": [
+        { "key": "A", "text": "Via extra_body with an agent reference (e.g., {'agent': {'name': ..., 'type': 'agent_reference'}})" },
+        { "key": "B", "text": "By pasting the full model weights into the request" },
+        { "key": "C", "text": "By setting temperature to 1.0" },
+        { "key": "D", "text": "By emailing the agent ID to Microsoft" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The agent is referenced using extra_body with an agent_reference (name + type) on the responses call.",
+        "distractors": {
+          "B": "You never pass model weights.",
+          "C": "Temperature is unrelated to referencing the agent.",
+          "D": "That is not a real mechanism."
+        }
+      },
+      "tags": ["agents", "project-api"]
+    },
+    {
+      "id": "fa-020",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which statement best distinguishes a model from an agent in Foundry?",
+      "options": [
+        { "key": "A", "text": "A model does pure inference; an agent adds instructions, tools, and knowledge and is called via the Project API" },
+        { "key": "B", "text": "A model can use tools; an agent cannot" },
+        { "key": "C", "text": "An agent does not use a model at all" },
+        { "key": "D", "text": "They are called by the exact same API in the exact same way" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Models = raw inference via Responses API; agents = model + instructions + tools + knowledge, called via Project API.",
+        "distractors": {
+          "B": "Tool use is the agent's feature.",
+          "C": "Agents are built on a model.",
+          "D": "Models use Responses API, agents use Project API."
+        }
+      },
+      "tags": ["agents", "models"]
+    },
+    {
+      "id": "fa-021",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What can an agent do beyond a single prompt-and-response?",
+      "options": [
+        { "key": "A", "text": "Break a goal into steps, call tools automatically, maintain working memory, and produce structured outputs" },
+        { "key": "B", "text": "Only echo the user's text" },
+        { "key": "C", "text": "Only translate languages" },
+        { "key": "D", "text": "Nothing; it is identical to a single inference call" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Agents can decompose goals, call tools, keep working memory, decide actions, and return structured output.",
+        "distractors": {
+          "B": "Agents do far more than echo.",
+          "C": "Translation is just one possible task.",
+          "D": "Agents add workflow behaviour beyond a single call."
+        }
+      },
+      "tags": ["agents", "capabilities"]
+    },
+    {
+      "id": "fa-022",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "In a multi-agent system, how do the agents typically coordinate?",
+      "options": [
+        { "key": "A", "text": "They communicate via prompts, using generative AI to determine tasks and which agent handles them" },
+        { "key": "B", "text": "They share a single GPU register directly" },
+        { "key": "C", "text": "They cannot communicate at all" },
+        { "key": "D", "text": "They only coordinate by email" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Specialist agents collaborate by communicating via prompts, deciding what tasks are needed and which agent should perform them.",
+        "distractors": {
+          "B": "Coordination is at the prompt/orchestration level, not GPU registers.",
+          "C": "They are designed to collaborate.",
+          "D": "Email is not the coordination mechanism."
+        }
+      },
+      "tags": ["agents", "multi-agent"]
+    },
+    {
+      "id": "fa-023",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the relationship between a Foundry resource and a Foundry project?",
+      "options": [
+        { "key": "A", "text": "A resource is the Azure resource; a project is a workspace inside it (one resource can hold many projects)" },
+        { "key": "B", "text": "A project contains many resources" },
+        { "key": "C", "text": "They are the same thing" },
+        { "key": "D", "text": "A resource is a single prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The Foundry resource is the Azure resource (governance, quotas); a project is a workspace within it holding agents, files, indexes, etc. Pattern: one resource per team, many projects.",
+        "distractors": {
+          "B": "It is the reverse: resource holds projects.",
+          "C": "They are distinct concepts.",
+          "D": "A resource is not a prompt."
+        }
+      },
+      "tags": ["foundry-basics", "resource-project"]
+    },
+    {
+      "id": "fa-024",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "How are Foundry API endpoints secured?",
+      "options": [
+        { "key": "A", "text": "By API key or Microsoft Entra ID token" },
+        { "key": "B", "text": "They are fully public with no authentication" },
+        { "key": "C", "text": "By the temperature setting" },
+        { "key": "D", "text": "By the model's vocabulary size" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Foundry endpoints are secured with an API key or an Entra ID token.",
+        "distractors": {
+          "B": "They are not unauthenticated.",
+          "C": "Temperature is a generation parameter, not security.",
+          "D": "Vocabulary size is unrelated to auth."
+        }
+      },
+      "tags": ["foundry-basics", "endpoints", "security"]
+    },
+    {
+      "id": "fa-025",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "Most developers interact with Foundry models/agents using what, rather than raw HTTP?",
+      "options": [
+        { "key": "A", "text": "SDKs (Python, JavaScript, C#)" },
+        { "key": "B", "text": "A fax machine" },
+        { "key": "C", "text": "Only the Azure portal UI" },
+        { "key": "D", "text": "Manual database edits" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "SDKs (Python, JS, C#) abstract the REST calls and are the typical way developers integrate.",
+        "distractors": {
+          "B": "Not a real integration method.",
+          "C": "The portal is for building/testing, not the app integration path.",
+          "D": "You do not integrate via manual DB edits."
+        }
+      },
+      "tags": ["foundry-basics", "sdk"]
+    },
+    {
+      "id": "fa-026",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An agent answers domain questions with citations drawn from the company's uploaded documents. Which agent capability provides this?",
+      "options": [
+        { "key": "A", "text": "Knowledge (RAG) with retrieval over indexed sources" },
+        { "key": "B", "text": "A higher temperature" },
+        { "key": "C", "text": "A larger max output tokens only" },
+        { "key": "D", "text": "Text-to-speech" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Citation-backed, domain-specific answers come from knowledge sources retrieved via RAG and indexed for the agent.",
+        "distractors": {
+          "B": "Temperature affects randomness, not grounding.",
+          "C": "Max tokens affects length, not citations.",
+          "D": "TTS produces audio, not citations."
+        }
+      },
+      "tags": ["agents", "knowledge", "rag"]
+    },
+    {
+      "id": "fa-027",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Which is an appropriate system prompt for a tutoring agent?",
+      "options": [
+        { "key": "A", "text": "'You are a patient maths tutor. Explain steps simply, cite sources, and decline medical advice.'" },
+        { "key": "B", "text": "'What is 2+2?'" },
+        { "key": "C", "text": "'gpt-4.1-mini'" },
+        { "key": "D", "text": "'temperature=0.7'" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "A system prompt sets role, behaviour, and constraints, exactly like this tutor instruction.",
+        "distractors": {
+          "B": "That is a user prompt (a specific question).",
+          "C": "That is a deployment/model name.",
+          "D": "That is a parameter, not a system prompt."
+        }
+      },
+      "tags": ["prompts", "system-prompt"]
+    },
+    {
+      "id": "fa-028",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "A developer wants their agent to run Python to perform calculations on uploaded data. Which built-in tool fits?",
+      "options": [
+        { "key": "A", "text": "Code Interpreter" },
+        { "key": "B", "text": "A PDF knowledge source" },
+        { "key": "C", "text": "A higher TPM" },
+        { "key": "D", "text": "A lower temperature" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Code Interpreter lets an agent execute code (e.g., Python) to compute over data.",
+        "distractors": {
+          "B": "A PDF is knowledge, not a code-execution tool.",
+          "C": "TPM is a throughput setting.",
+          "D": "Temperature affects randomness."
+        }
+      },
+      "tags": ["agents", "tools"]
+    },
+    {
+      "id": "fa-029",
+      "type": "single",
+      "difficulty": "hard",
+      "stem": "An agent needs to connect to an external system that exposes standardised tools/actions over the Model Context Protocol. What does the agent use?",
+      "options": [
+        { "key": "A", "text": "An MCP server connection (as a tool)" },
+        { "key": "B", "text": "An embeddings model" },
+        { "key": "C", "text": "A text-to-speech voice" },
+        { "key": "D", "text": "A higher max output tokens" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "MCP servers expose tools/actions an agent can call, configured as a tool connection.",
+        "distractors": {
+          "B": "Embeddings models produce vectors.",
+          "C": "TTS produces audio.",
+          "D": "Max tokens controls length."
+        }
+      },
+      "tags": ["agents", "tools", "mcp"]
+    },
+    {
+      "id": "fa-030",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "Why prefer including conversation history (summarised) rather than sending only the latest user message?",
+      "options": [
+        { "key": "A", "text": "So the model has context from earlier turns and can respond coherently" },
+        { "key": "B", "text": "To increase the bill deliberately" },
+        { "key": "C", "text": "Because the model cannot read a single message" },
+        { "key": "D", "text": "To disable the system prompt" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "History gives the model context from prior exchanges so multi-turn responses stay coherent.",
+        "distractors": {
+          "B": "The goal is context, not cost.",
+          "C": "The model can read single messages; history adds context.",
+          "D": "History does not disable the system prompt."
+        }
+      },
+      "tags": ["prompts", "conversation-history"]
+    },
+    {
+      "id": "fa-031",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A generic model answer is too vague for a company policy question. Which technique grounds it in the company's actual policy?",
+      "options": [
+        { "key": "A", "text": "RAG (retrieve the policy and add it to the prompt)" },
+        { "key": "B", "text": "Raising the temperature" },
+        { "key": "C", "text": "Switching to text-to-speech" },
+        { "key": "D", "text": "Reducing max output tokens" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "RAG retrieves the relevant policy and augments the prompt so the answer is grounded and specific.",
+        "distractors": {
+          "B": "Higher temperature adds randomness, not grounding.",
+          "C": "TTS changes modality, not grounding.",
+          "D": "Shorter output does not add accuracy."
+        }
+      },
+      "tags": ["prompts", "rag"]
+    },
+    {
+      "id": "fa-032",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "In the Foundry portal, what is 'Ask AI'?",
+      "options": [
+        { "key": "A", "text": "A built-in agent helper for docs, troubleshooting, and deployment management" },
+        { "key": "B", "text": "The billing dashboard" },
+        { "key": "C", "text": "A way to delete your subscription" },
+        { "key": "D", "text": "The Key Vault" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Ask AI is a built-in helper agent for documentation, troubleshooting, model analysis, and deployment management.",
+        "distractors": {
+          "B": "It is not billing.",
+          "C": "It does not delete subscriptions.",
+          "D": "Key Vault is a separate secrets service."
+        }
+      },
+      "tags": ["foundry-basics", "portal"]
+    },
+    {
+      "id": "fa-033",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO are agent TOOLS (actions) rather than knowledge sources? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Code Interpreter" },
+        { "key": "B", "text": "A custom function that calls a REST API" },
+        { "key": "C", "text": "A SharePoint document library for retrieval" },
+        { "key": "D", "text": "A set of PDF manuals" },
+        { "key": "E", "text": "An Azure Storage container of reference files" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Code Interpreter and a custom REST-calling function are callable tools (actions).",
+        "distractors": {
+          "C": "SharePoint content for retrieval is knowledge.",
+          "D": "PDF manuals are knowledge.",
+          "E": "Reference files are knowledge."
+        }
+      },
+      "tags": ["agents", "tools-knowledge", "multi-select"]
+    },
+    {
+      "id": "fa-034",
+      "type": "multi",
+      "difficulty": "medium",
+      "stem": "Which THREE are good prompt-engineering practices? (Choose three.)",
+      "options": [
+        { "key": "A", "text": "Be clear and specific" },
+        { "key": "B", "text": "Provide context (audience, format)" },
+        { "key": "C", "text": "Give examples of the desired output" },
+        { "key": "D", "text": "Keep instructions deliberately vague" },
+        { "key": "E", "text": "Never specify a format" }
+      ],
+      "correct": ["A", "B", "C"],
+      "explanation": {
+        "correct": "Clarity/specificity, context, and examples all improve prompt results.",
+        "distractors": {
+          "D": "Vagueness reduces quality.",
+          "E": "Specifying a format usually helps."
+        }
+      },
+      "tags": ["prompts", "best-practice", "multi-select"]
+    },
+    {
+      "id": "fa-035",
+      "type": "multi",
+      "difficulty": "hard",
+      "stem": "Which TWO statements about calling models vs agents are correct? (Choose two.)",
+      "options": [
+        { "key": "A", "text": "Raw models are called via the OpenAI Responses API" },
+        { "key": "B", "text": "Agents are called via the Foundry Project API with an agent reference" },
+        { "key": "C", "text": "Agents cannot use tools" },
+        { "key": "D", "text": "Models and agents are always called identically" },
+        { "key": "E", "text": "Agents do not require a model" }
+      ],
+      "correct": ["A", "B"],
+      "explanation": {
+        "correct": "Models use the Responses API; agents use the Project API with an agent reference.",
+        "distractors": {
+          "C": "Tool use is a key agent feature.",
+          "D": "The calling APIs differ.",
+          "E": "Agents are built on a model."
+        }
+      },
+      "tags": ["agents", "models", "multi-select"]
+    },
+    {
+      "id": "fa-036",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "A client application's job in the client-server pattern includes which of the following?",
+      "options": [
+        { "key": "A", "text": "Collect user input, format the API request, send to the endpoint, and display the result" },
+        { "key": "B", "text": "Run model inference itself" },
+        { "key": "C", "text": "Apply the system instructions and safety filters internally" },
+        { "key": "D", "text": "Store the model weights" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The client collects input, formats the request, calls the endpoint, and displays output; the server runs inference and applies instructions/safety.",
+        "distractors": {
+          "B": "Inference runs server-side.",
+          "C": "Instructions/safety are applied server-side.",
+          "D": "The client does not store model weights."
+        }
+      },
+      "tags": ["foundry-basics", "client-server"]
+    },
+    {
+      "id": "fa-037",
+      "type": "single",
+      "difficulty": "medium",
+      "stem": "What is the recommended pattern for resources and projects across a team?",
+      "options": [
+        { "key": "A", "text": "One Foundry resource per team, many projects per resource" },
+        { "key": "B", "text": "One project per company, no resources" },
+        { "key": "C", "text": "One resource per prompt" },
+        { "key": "D", "text": "A new subscription for every chat message" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "The pattern is one resource per team with many projects inside it.",
+        "distractors": {
+          "B": "Projects live inside resources.",
+          "C": "Resources are not per-prompt.",
+          "D": "Subscriptions are not per-message."
+        }
+      },
+      "tags": ["foundry-basics", "resource-project"]
+    },
+    {
+      "id": "fa-038",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A company builds an internal HR assistant. Requirements: (1) it must answer using the company's own policy PDFs with citations; (2) it must be able to look up an employee's leave balance from an internal REST API; (3) developers will call it from a Python backend.",
+      "subQuestions": [
+        {
+          "id": "fa-038-a",
+          "type": "single",
+          "stem": "Requirement (1) — answer from policy PDFs with citations — is provided by which agent capability?",
+          "options": [
+            { "key": "A", "text": "Knowledge sources with RAG" },
+            { "key": "B", "text": "A higher temperature" },
+            { "key": "C", "text": "Text-to-speech" },
+            { "key": "D", "text": "A larger TPM" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Policy PDFs added as knowledge and retrieved via RAG provide grounded, citation-backed answers.",
+            "distractors": {
+              "B": "Temperature affects randomness.",
+              "C": "TTS produces audio.",
+              "D": "TPM is throughput."
+            }
+          }
+        },
+        {
+          "id": "fa-038-b",
+          "type": "single",
+          "stem": "Requirement (2) — look up leave balance from a REST API — is provided by which agent capability?",
+          "options": [
+            { "key": "A", "text": "A tool (custom function / API connection)" },
+            { "key": "B", "text": "A knowledge source" },
+            { "key": "C", "text": "A lower temperature" },
+            { "key": "D", "text": "Positional encoding" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Calling an internal REST API to take an action is a tool (custom function / API connection).",
+            "distractors": {
+              "B": "Knowledge is for retrieval/grounding, not live API actions.",
+              "C": "Temperature is a generation parameter.",
+              "D": "Positional encoding is an internal transformer mechanism."
+            }
+          }
+        },
+        {
+          "id": "fa-038-c",
+          "type": "single",
+          "stem": "Requirement (3) — call this agent from a Python backend — uses which API?",
+          "options": [
+            { "key": "A", "text": "The Foundry Project API (AIProjectClient) with an agent reference" },
+            { "key": "B", "text": "The OpenAI Responses API with no agent reference" },
+            { "key": "C", "text": "The Azure Speech SDK" },
+            { "key": "D", "text": "The Content Understanding SDK" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Agents are invoked via the Foundry Project API (AIProjectClient) using an agent reference.",
+            "distractors": {
+              "B": "That path calls a raw model, not the agent.",
+              "C": "Speech SDK is for speech.",
+              "D": "Content Understanding is for extraction."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "agents", "tools-knowledge", "project-api"]
+    },
+    {
+      "id": "fa-039",
+      "type": "case",
+      "difficulty": "hard",
+      "stem": "Case study: A developer prototypes a chatbot. (1) They first want to try different prompts and tune temperature without writing code. (2) Once happy, they want the exact settings in a Python app. (3) They must keep the endpoint API key out of source control.",
+      "subQuestions": [
+        {
+          "id": "fa-039-a",
+          "type": "single",
+          "stem": "For (1) trying prompts and tuning without code, what should they use?",
+          "options": [
+            { "key": "A", "text": "The Foundry Playground" },
+            { "key": "B", "text": "Azure Key Vault" },
+            { "key": "C", "text": "A production App Service" },
+            { "key": "D", "text": "The billing portal" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "The Playground is the no-code environment to try prompts and tune parameters.",
+            "distractors": {
+              "B": "Key Vault stores secrets.",
+              "C": "App Service is for hosting.",
+              "D": "Billing is unrelated."
+            }
+          }
+        },
+        {
+          "id": "fa-039-b",
+          "type": "single",
+          "stem": "For (2) moving the exact settings to a Python app, what do they do?",
+          "options": [
+            { "key": "A", "text": "Export the code from the Playground and use the Responses API in the app" },
+            { "key": "B", "text": "Retrain the model" },
+            { "key": "C", "text": "Recreate the subscription" },
+            { "key": "D", "text": "Nothing can be transferred" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Export the Playground code (using the Responses API) and integrate it into the client app.",
+            "distractors": {
+              "B": "No retraining needed.",
+              "C": "Subscriptions are unrelated.",
+              "D": "Settings transfer via exported code."
+            }
+          }
+        },
+        {
+          "id": "fa-039-c",
+          "type": "single",
+          "stem": "For (3) keeping the API key out of source control, what should they use?",
+          "options": [
+            { "key": "A", "text": "Azure Key Vault, retrieving the key at runtime" },
+            { "key": "B", "text": "Hard-code it in the Python file" },
+            { "key": "C", "text": "Put it in the system prompt" },
+            { "key": "D", "text": "Commit it to a public repo" }
+          ],
+          "correct": ["A"],
+          "explanation": {
+            "correct": "Store the key in Azure Key Vault and retrieve it at runtime; never hard-code or commit secrets.",
+            "distractors": {
+              "B": "Hard-coding is insecure.",
+              "C": "The system prompt is not a secret store.",
+              "D": "Publishing keys is a serious risk."
+            }
+          }
+        }
+      ],
+      "tags": ["case-study", "playground", "security", "key-vault"]
+    },
+    {
+      "id": "fa-040",
+      "type": "single",
+      "difficulty": "easy",
+      "stem": "What are the four pillars of Microsoft Foundry?",
+      "options": [
+        { "key": "A", "text": "Models, Agents, Tools, and Knowledge" },
+        { "key": "B", "text": "Compute, Storage, Networking, Billing" },
+        { "key": "C", "text": "Train, Test, Validate, Deploy" },
+        { "key": "D", "text": "Red, Green, Blue, Alpha" }
+      ],
+      "correct": ["A"],
+      "explanation": {
+        "correct": "Foundry's four pillars are Models, Agents, Tools, and Knowledge.",
+        "distractors": {
+          "B": "Those are general Azure service categories.",
+          "C": "Those are ML lifecycle stages.",
+          "D": "Those are colour channels."
+        }
+      },
+      "tags": ["foundry-basics"]
+    }
+  ]
+}

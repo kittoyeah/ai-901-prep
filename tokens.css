@@ -1,0 +1,56 @@
+/* Hallmark · portable tokens · theme: Cobalt (modern-minimal) · light + dark
+ * Mirror of the live tokens in app/globals.css. Copy into any project to carry the system.
+ */
+:root,
+[data-theme="light"] {
+  --color-paper: oklch(98.5% 0.004 250);
+  --color-surface: oklch(96.8% 0.005 250);
+  --color-surface-2: oklch(94.5% 0.006 250);
+  --color-ink: oklch(24% 0.02 258);
+  --color-ink-2: oklch(34% 0.018 257);
+  --color-ink-3: oklch(52% 0.015 257);
+  --color-rule: oklch(90% 0.006 250);
+  --color-rule-2: oklch(82% 0.009 250);
+  --color-accent: oklch(58% 0.2 256);
+  --color-accent-strong: oklch(52% 0.2 256);
+  --color-accent-ink: oklch(98.5% 0.004 250);
+  --color-accent-soft: oklch(58% 0.2 256 / 0.12);
+  --color-correct: oklch(56% 0.13 150);
+  --color-correct-soft: oklch(56% 0.13 150 / 0.12);
+  --color-wrong: oklch(57% 0.2 25);
+  --color-wrong-soft: oklch(57% 0.2 25 / 0.1);
+  --color-graphite: oklch(22% 0.016 260);
+  --color-focus: oklch(58% 0.2 256);
+}
+[data-theme="dark"] {
+  --color-paper: oklch(20% 0.016 260);
+  --color-surface: oklch(23.5% 0.018 260);
+  --color-surface-2: oklch(27% 0.02 260);
+  --color-ink: oklch(95% 0.005 250);
+  --color-ink-2: oklch(86% 0.01 255);
+  --color-ink-3: oklch(66% 0.012 257);
+  --color-rule: oklch(33% 0.02 260);
+  --color-rule-2: oklch(42% 0.022 260);
+  --color-accent: oklch(72% 0.16 256);
+  --color-accent-strong: oklch(78% 0.15 256);
+  --color-accent-ink: oklch(18% 0.016 260);
+  --color-accent-soft: oklch(72% 0.16 256 / 0.16);
+  --color-correct: oklch(74% 0.15 150);
+  --color-correct-soft: oklch(74% 0.15 150 / 0.16);
+  --color-wrong: oklch(70% 0.19 25);
+  --color-wrong-soft: oklch(70% 0.19 25 / 0.16);
+  --color-graphite: oklch(16% 0.014 260);
+  --color-focus: oklch(78% 0.15 256);
+}
+:root {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur-mid: 260ms;
+  --dur-slow: 600ms;
+}
