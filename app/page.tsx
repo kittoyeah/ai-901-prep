@@ -8,14 +8,14 @@ export default function Home() {
 
   return (
     <div className="shell shell--wide">
-      <header style={{ marginBottom: "var(--space-xl)", maxWidth: "46rem" }}>
+      <header style={{ marginBottom: "var(--space-xl)" }}>
         <p className="mono-label" style={{ marginBottom: "var(--space-sm)" }}>
           Microsoft Azure AI Fundamentals
         </p>
-        <h1 style={{ fontSize: "clamp(2rem, 1.4rem + 3vw, 3.2rem)", marginBottom: "var(--space-md)" }}>
+        <h1 style={{ fontSize: "clamp(2rem, 1.4rem + 3vw, 3.2rem)", marginBottom: "var(--space-md)", maxWidth: "20ch" }}>
           Practise for the AI-901 exam
         </h1>
-        <p style={{ color: "var(--color-ink-2)", fontSize: "1.05rem" }}>
+        <p style={{ color: "var(--color-ink-2)", fontSize: "1.05rem", maxWidth: "46rem" }}>
           AI-901 replaced AI-900 in 2026. It tests whether you can describe AI
           concepts and build basic AI solutions with Microsoft Foundry. {totalQ}{" "}
           practice questions here across {summaries.length} sections, with the full
@@ -42,21 +42,21 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Domain weighting */}
-        <div className="weight">
-          <div className="weight__bar" aria-hidden="true">
-            <div className="weight__seg weight__seg--a" style={{ width: "43%" }} />
-            <div className="weight__seg weight__seg--b" style={{ width: "57%" }} />
+        {/* Domain weighting — the two skill areas and their share of the exam */}
+        <div className="domains">
+          <div className="domain">
+            <span className="domain__name">
+              <b>Identify AI concepts</b>
+              <span className="mono-label">knowledge</span>
+            </span>
+            <span className="domain__pct">40-45%</span>
           </div>
-          <div className="weight__legend">
-            <span className="chip">
-              <span className="dot" style={{ background: "var(--color-accent-soft)" }} />
-              Identify AI concepts · 40-45%
+          <div className="domain domain--focus">
+            <span className="domain__name">
+              <b>Implement with Foundry</b>
+              <span className="mono-label">exam focus · hands-on</span>
             </span>
-            <span className="chip">
-              <span className="dot dot--medium" />
-              Implement with Foundry · 55-60%
-            </span>
+            <span className="domain__pct">55-60%</span>
           </div>
         </div>
 
